@@ -72,11 +72,6 @@ Public Class Main
             TrafStatBar.Visible = False
         End If
     End Sub
-
-    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles LogSaveBtn.Click
-
-    End Sub
-
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
         Close()
     End Sub

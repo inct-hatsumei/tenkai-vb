@@ -7,11 +7,18 @@ Public Class Main
     Dim PortNo As Integer
     Dim DataNo As Integer = 0
     Dim byteNum As Integer = 0
+    'グラフ関連
+    Dim ds As New DataSet
+    Dim dt As New DataTable
+    Dim dtRow As DataRow
+    Dim DatasetDelete As Boolean = False
+
+    Dim r As New System.Random(1000)
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChangeColor(My.Settings.Color)
         PortNo = My.Settings.BluetoothPort
+        InitializeChart()
         JstClock.Enabled = True
-        showChart()
     End Sub
     Delegate Sub DataDelegate(ByVal sdata As String)
     Private Sub BluetoothSpp_DataReceived(ByVal sender As Object, ByVal e As EventArgs) Handles BluetoothSpp.DataReceived
@@ -164,6 +171,7 @@ Public Class Main
 
     Private Sub JstClock_Tick(sender As Object, e As EventArgs) Handles JstClock.Tick
         JstTbox.Text = Date.Now.ToString("yyyy年MM月dd日　HH時mm分ss秒")
+        showChart()
     End Sub
 
     Private Sub OutlierConfig_Click(sender As Object, e As EventArgs) Handles OutlierConfig.Click
@@ -188,17 +196,39 @@ Public Class Main
         End If
     End Sub
     Private Function showChart()
-        '初期化
-        Chart1.Series.Clear()
-
         'データの取得
-        Dim ds As DataSet = GetData()
-
+        'Dim ds As DataSet = 
+        GetData()
         'Chartコントロールにデータソースを設定
         Chart1.DataSource = ds
+        Chart1.DataBind()
+    End Function
+    ' データの設定
+    Private Function GetData() ' As DataSet
+        'データの追加
+        dtRow = ds.Tables(0).NewRow
+        dtRow(0) = Date.Now.ToString("HH:mm:ss")
+        dtRow(1) = r.Next(50)
+        ds.Tables(0).Rows.Add(dtRow)
 
+        If ds.Tables(0).Rows.Count = 21 And DatasetDelete = False Then
+            DatasetDelete = True
+        End If
+        If DatasetDelete = True Then
+            ds.Tables(0).Rows(0).Delete()
+            Console.Write("row deleted")
+        End If
+        'Return (ds)
+    End Function
+    Private Function InitializeChart()
+        '初期化
+        Chart1.Series.Clear()
+        '列の作成
+        dt.Columns.Add("数値", Type.GetType("System.String"))
+        dt.Columns.Add("乱数", Type.GetType("System.Int32"))
+        ds.Tables.Add(dt)
         'Chartコントロールにタイトルを設定
-        Chart1.Titles.Add("アクセス数とユニークユーザー数")
+        Chart1.Titles.Add("乱数グラフ")
 
         'グラフの種類,系列,軸の設定
         For I As Integer = 1 To ds.Tables(0).Columns.Count - 1
@@ -221,52 +251,6 @@ Public Class Main
         Next
 
         'X軸タイトル
-        Chart1.ChartAreas(0).AxisX.Title = "月"
-
-        Chart1.DataBind()
-    End Function
-    ' データの設定
-    Private Function GetData() As DataSet
-        Dim ds As New DataSet
-        Dim dt As New DataTable
-        Dim dtRow As DataRow
-
-        '列の作成
-        dt.Columns.Add("月", Type.GetType("System.String"))
-        dt.Columns.Add("アクセス数", Type.GetType("System.Int32"))
-        ds.Tables.Add(dt)
-
-        'データの追加
-        dtRow = ds.Tables(0).NewRow
-        dtRow(0) = "2011/01"
-        dtRow(1) = "945"
-        ds.Tables(0).Rows.Add(dtRow)
-
-        dtRow = ds.Tables(0).NewRow
-        dtRow(0) = "2011/02"
-        dtRow(1) = "1023"
-        ds.Tables(0).Rows.Add(dtRow)
-
-        dtRow = ds.Tables(0).NewRow
-        dtRow(0) = "2011/03"
-        dtRow(1) = "2121"
-        ds.Tables(0).Rows.Add(dtRow)
-
-        dtRow = ds.Tables(0).NewRow
-        dtRow(0) = "2011/04"
-        dtRow(1) = "2179"
-        ds.Tables(0).Rows.Add(dtRow)
-
-        dtRow = ds.Tables(0).NewRow
-        dtRow(0) = "2011/05"
-        dtRow(1) = "2063"
-        ds.Tables(0).Rows.Add(dtRow)
-
-        dtRow = ds.Tables(0).NewRow
-        dtRow(0) = "2011/06"
-        dtRow(1) = "2107"
-        ds.Tables(0).Rows.Add(dtRow)
-
-        Return (ds)
+        Chart1.ChartAreas(0).AxisX.Title = "時刻"
     End Function
 End Class

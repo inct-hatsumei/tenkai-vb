@@ -23,19 +23,19 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint1 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
-        Dim DataPoint2 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
-        Dim DataPoint3 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
-        Dim DataPoint4 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
-        Dim DataPoint5 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
-        Dim DataPoint6 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
-        Dim DataPoint7 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
-        Dim DataPoint8 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
-        Dim DataPoint9 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
-        Dim DataPoint10 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint11 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
+        Dim DataPoint12 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
+        Dim DataPoint13 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
+        Dim DataPoint14 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
+        Dim DataPoint15 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
+        Dim DataPoint16 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
+        Dim DataPoint17 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
+        Dim DataPoint18 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
+        Dim DataPoint19 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
+        Dim DataPoint20 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
         Me.BluetoothSpp = New System.IO.Ports.SerialPort(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ExitBtn = New System.Windows.Forms.Button()
@@ -493,6 +493,7 @@ Partial Class Main
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.MissTimeTbox)
+        Me.GroupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox5.ForeColor = System.Drawing.Color.Green
         Me.GroupBox5.Location = New System.Drawing.Point(12, 34)
         Me.GroupBox5.Name = "GroupBox5"
@@ -533,31 +534,31 @@ Partial Class Main
         Me.Chart1.BackColor = System.Drawing.Color.Transparent
         Me.Chart1.BackSecondaryColor = System.Drawing.Color.Transparent
         Me.Chart1.BorderlineColor = System.Drawing.Color.Transparent
-        ChartArea1.BackSecondaryColor = System.Drawing.Color.Transparent
-        ChartArea1.BorderColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        ChartArea2.BackSecondaryColor = System.Drawing.Color.Transparent
+        ChartArea2.BorderColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend2)
         Me.Chart1.Location = New System.Drawing.Point(6, 24)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series1.Color = System.Drawing.Color.Transparent
-        Series1.Legend = "Legend1"
-        Series1.Name = "グラフ1"
-        Series1.Points.Add(DataPoint1)
-        Series1.Points.Add(DataPoint2)
-        Series1.Points.Add(DataPoint3)
-        Series1.Points.Add(DataPoint4)
-        Series1.Points.Add(DataPoint5)
-        Series1.Points.Add(DataPoint6)
-        Series1.Points.Add(DataPoint7)
-        Series1.Points.Add(DataPoint8)
-        Series1.Points.Add(DataPoint9)
-        Series1.Points.Add(DataPoint10)
-        Me.Chart1.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series2.Color = System.Drawing.Color.Transparent
+        Series2.Legend = "Legend1"
+        Series2.Name = "グラフ1"
+        Series2.Points.Add(DataPoint11)
+        Series2.Points.Add(DataPoint12)
+        Series2.Points.Add(DataPoint13)
+        Series2.Points.Add(DataPoint14)
+        Series2.Points.Add(DataPoint15)
+        Series2.Points.Add(DataPoint16)
+        Series2.Points.Add(DataPoint17)
+        Series2.Points.Add(DataPoint18)
+        Series2.Points.Add(DataPoint19)
+        Series2.Points.Add(DataPoint20)
+        Me.Chart1.Series.Add(Series2)
         Me.Chart1.Size = New System.Drawing.Size(1537, 300)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"

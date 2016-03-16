@@ -1,5 +1,6 @@
 ﻿Imports System.Text
 Imports System.IO
+Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class Main
     Dim SjisEnc As Encoding = Encoding.GetEncoding("Shift_JIS")
@@ -10,6 +11,7 @@ Public Class Main
         ChangeColor(My.Settings.Color)
         PortNo = My.Settings.BluetoothPort
         JstClock.Enabled = True
+        showChart()
     End Sub
     Delegate Sub DataDelegate(ByVal sdata As String)
     Private Sub BluetoothSpp_DataReceived(ByVal sender As Object, ByVal e As EventArgs) Handles BluetoothSpp.DataReceived
@@ -24,7 +26,7 @@ Public Class Main
     End Sub
     Private Sub Display(ByVal ReceivedData As String)
         TrafStatBar.Visible = True
-        byteNum += sjisEnc.GetByteCount(ReceivedData)
+        byteNum += SjisEnc.GetByteCount(ReceivedData)
         DataNo += 1
         Dim A As Object
         A = Split(ReceivedData, ",")
@@ -185,4 +187,86 @@ Public Class Main
             MsgBox("Disconnect Error")
         End If
     End Sub
+    Private Function showChart()
+        '初期化
+        Chart1.Series.Clear()
+
+        'データの取得
+        Dim ds As DataSet = GetData()
+
+        'Chartコントロールにデータソースを設定
+        Chart1.DataSource = ds
+
+        'Chartコントロールにタイトルを設定
+        Chart1.Titles.Add("アクセス数とユニークユーザー数")
+
+        'グラフの種類,系列,軸の設定
+        For I As Integer = 1 To ds.Tables(0).Columns.Count - 1
+            '列名の取得
+            Dim columnName As String = ds.Tables(0).Columns(I).ColumnName
+
+            '系列の設定
+            Chart1.Series.Add(columnName)
+
+            '★★★グラフの種類を折れ線グラフにする★★★
+            Chart1.Series(columnName).ChartType = SeriesChartType.Line
+
+            'X軸
+            Chart1.Series(columnName).XValueMember = ds.Tables(0).Columns(0).ColumnName.ToString
+            Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+            Chart1.ChartAreas(0).AxisX.MinorGrid.Enabled = False
+
+            'Y軸
+            Chart1.Series(columnName).YValueMembers = columnName
+        Next
+
+        'X軸タイトル
+        Chart1.ChartAreas(0).AxisX.Title = "月"
+
+        Chart1.DataBind()
+    End Function
+    ' データの設定
+    Private Function GetData() As DataSet
+        Dim ds As New DataSet
+        Dim dt As New DataTable
+        Dim dtRow As DataRow
+
+        '列の作成
+        dt.Columns.Add("月", Type.GetType("System.String"))
+        dt.Columns.Add("アクセス数", Type.GetType("System.Int32"))
+        ds.Tables.Add(dt)
+
+        'データの追加
+        dtRow = ds.Tables(0).NewRow
+        dtRow(0) = "2011/01"
+        dtRow(1) = "945"
+        ds.Tables(0).Rows.Add(dtRow)
+
+        dtRow = ds.Tables(0).NewRow
+        dtRow(0) = "2011/02"
+        dtRow(1) = "1023"
+        ds.Tables(0).Rows.Add(dtRow)
+
+        dtRow = ds.Tables(0).NewRow
+        dtRow(0) = "2011/03"
+        dtRow(1) = "2121"
+        ds.Tables(0).Rows.Add(dtRow)
+
+        dtRow = ds.Tables(0).NewRow
+        dtRow(0) = "2011/04"
+        dtRow(1) = "2179"
+        ds.Tables(0).Rows.Add(dtRow)
+
+        dtRow = ds.Tables(0).NewRow
+        dtRow(0) = "2011/05"
+        dtRow(1) = "2063"
+        ds.Tables(0).Rows.Add(dtRow)
+
+        dtRow = ds.Tables(0).NewRow
+        dtRow(0) = "2011/06"
+        dtRow(1) = "2107"
+        ds.Tables(0).Rows.Add(dtRow)
+
+        Return (ds)
+    End Function
 End Class

@@ -23,6 +23,19 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint1 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
+        Dim DataPoint2 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
+        Dim DataPoint3 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
+        Dim DataPoint4 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
+        Dim DataPoint5 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
+        Dim DataPoint6 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
+        Dim DataPoint7 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
+        Dim DataPoint8 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
+        Dim DataPoint9 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
+        Dim DataPoint10 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
         Me.BluetoothSpp = New System.IO.Ports.SerialPort(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ExitBtn = New System.Windows.Forms.Button()
@@ -59,6 +72,7 @@ Partial Class Main
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.MissTimeTbox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.TrafStatBar = New System.Windows.Forms.ProgressBar()
         Me.TrafStatLbl = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
@@ -90,6 +104,8 @@ Partial Class Main
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
         Me.MenuBar.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -501,6 +517,7 @@ Partial Class Main
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.Chart1)
         Me.GroupBox2.ForeColor = System.Drawing.Color.Green
         Me.GroupBox2.Location = New System.Drawing.Point(337, 34)
         Me.GroupBox2.Name = "GroupBox2"
@@ -508,6 +525,42 @@ Partial Class Main
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "機体姿勢"
+        '
+        'Chart1
+        '
+        Me.Chart1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Chart1.BackColor = System.Drawing.Color.Transparent
+        Me.Chart1.BackSecondaryColor = System.Drawing.Color.Transparent
+        Me.Chart1.BorderlineColor = System.Drawing.Color.Transparent
+        ChartArea1.BackSecondaryColor = System.Drawing.Color.Transparent
+        ChartArea1.BorderColor = System.Drawing.Color.Transparent
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(6, 24)
+        Me.Chart1.Name = "Chart1"
+        Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.Color = System.Drawing.Color.Transparent
+        Series1.Legend = "Legend1"
+        Series1.Name = "グラフ1"
+        Series1.Points.Add(DataPoint1)
+        Series1.Points.Add(DataPoint2)
+        Series1.Points.Add(DataPoint3)
+        Series1.Points.Add(DataPoint4)
+        Series1.Points.Add(DataPoint5)
+        Series1.Points.Add(DataPoint6)
+        Series1.Points.Add(DataPoint7)
+        Series1.Points.Add(DataPoint8)
+        Series1.Points.Add(DataPoint9)
+        Series1.Points.Add(DataPoint10)
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(1537, 300)
+        Me.Chart1.TabIndex = 0
+        Me.Chart1.Text = "Chart1"
         '
         'TrafStatBar
         '
@@ -548,7 +601,7 @@ Partial Class Main
         Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Mission, Me.Config, Me.SystemStat, Me.Help})
         Me.MenuBar.Location = New System.Drawing.Point(0, 0)
         Me.MenuBar.Name = "MenuBar"
-        Me.MenuBar.Size = New System.Drawing.Size(1898, 32)
+        Me.MenuBar.Size = New System.Drawing.Size(1898, 31)
         Me.MenuBar.TabIndex = 4
         Me.MenuBar.Text = "MenuStrip1"
         '
@@ -556,32 +609,32 @@ Partial Class Main
         '
         Me.Mission.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MissionStart, Me.MissionFinish, Me.SoftwareLock})
         Me.Mission.Name = "Mission"
-        Me.Mission.Size = New System.Drawing.Size(80, 28)
+        Me.Mission.Size = New System.Drawing.Size(80, 27)
         Me.Mission.Text = "ミッション"
         '
         'MissionStart
         '
         Me.MissionStart.Name = "MissionStart"
-        Me.MissionStart.Size = New System.Drawing.Size(211, 30)
+        Me.MissionStart.Size = New System.Drawing.Size(208, 30)
         Me.MissionStart.Text = "ミッション開始"
         '
         'MissionFinish
         '
         Me.MissionFinish.Name = "MissionFinish"
-        Me.MissionFinish.Size = New System.Drawing.Size(211, 30)
+        Me.MissionFinish.Size = New System.Drawing.Size(208, 30)
         Me.MissionFinish.Text = "ミッション終了"
         '
         'SoftwareLock
         '
         Me.SoftwareLock.Name = "SoftwareLock"
-        Me.SoftwareLock.Size = New System.Drawing.Size(211, 30)
+        Me.SoftwareLock.Size = New System.Drawing.Size(208, 30)
         Me.SoftwareLock.Text = "ソフトウエアロック"
         '
         'Config
         '
         Me.Config.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BluetoothConfig, Me.LogSaveConfig, Me.UIConfig, Me.OutlierConfig})
         Me.Config.Name = "Config"
-        Me.Config.Size = New System.Drawing.Size(58, 28)
+        Me.Config.Size = New System.Drawing.Size(58, 27)
         Me.Config.Text = "設定"
         '
         'BluetoothConfig
@@ -625,7 +678,7 @@ Partial Class Main
         '
         Me.SystemStat.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BatteryStat, Me.OSInfo})
         Me.SystemStat.Name = "SystemStat"
-        Me.SystemStat.Size = New System.Drawing.Size(149, 28)
+        Me.SystemStat.Size = New System.Drawing.Size(149, 27)
         Me.SystemStat.Text = "システムステータス"
         '
         'BatteryStat
@@ -644,7 +697,7 @@ Partial Class Main
         '
         Me.Help.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AndroidAppHelp, Me.GroundSoftHelp, Me.MissionMan, Me.CheckList, Me.TroubleShooting, Me.About})
         Me.Help.Name = "Help"
-        Me.Help.Size = New System.Drawing.Size(66, 28)
+        Me.Help.Size = New System.Drawing.Size(66, 27)
         Me.Help.Text = "ヘルプ"
         '
         'AndroidAppHelp
@@ -731,6 +784,8 @@ Partial Class Main
         Me.GroupBox1.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.MenuBar.ResumeLayout(False)
@@ -805,4 +860,5 @@ Partial Class Main
     Friend WithEvents JstTbox As TextBox
     Friend WithEvents JstClock As Timer
     Friend WithEvents OutlierConfig As ToolStripMenuItem
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class

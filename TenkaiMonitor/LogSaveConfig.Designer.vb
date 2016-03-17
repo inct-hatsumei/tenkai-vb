@@ -75,7 +75,7 @@ Partial Class LogSaveConfig
         'OkBtn
         '
         Me.OkBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OkBtn.Location = New System.Drawing.Point(310, 149)
+        Me.OkBtn.Location = New System.Drawing.Point(196, 149)
         Me.OkBtn.Name = "OkBtn"
         Me.OkBtn.Size = New System.Drawing.Size(108, 35)
         Me.OkBtn.TabIndex = 4
@@ -85,7 +85,7 @@ Partial Class LogSaveConfig
         'CancelBtn
         '
         Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelBtn.Location = New System.Drawing.Point(196, 149)
+        Me.CancelBtn.Location = New System.Drawing.Point(310, 149)
         Me.CancelBtn.Name = "CancelBtn"
         Me.CancelBtn.Size = New System.Drawing.Size(108, 35)
         Me.CancelBtn.TabIndex = 4

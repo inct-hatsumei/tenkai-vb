@@ -52,7 +52,7 @@ Partial Class BluetoothConfig
         'OkBtn
         '
         Me.OkBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OkBtn.Location = New System.Drawing.Point(208, 76)
+        Me.OkBtn.Location = New System.Drawing.Point(102, 73)
         Me.OkBtn.Name = "OkBtn"
         Me.OkBtn.Size = New System.Drawing.Size(100, 37)
         Me.OkBtn.TabIndex = 3
@@ -62,7 +62,7 @@ Partial Class BluetoothConfig
         'CancelBtn
         '
         Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelBtn.Location = New System.Drawing.Point(102, 76)
+        Me.CancelBtn.Location = New System.Drawing.Point(208, 73)
         Me.CancelBtn.Name = "CancelBtn"
         Me.CancelBtn.Size = New System.Drawing.Size(100, 37)
         Me.CancelBtn.TabIndex = 3

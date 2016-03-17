@@ -58,6 +58,7 @@ Public Class Main
         showChart(CpuUseTbox.Text)
     End Sub
     Private Sub ClearBtn_Click_1(sender As Object, e As EventArgs) Handles ClearBtn.Click
+        Media.SystemSounds.Exclamation.Play()
         If MessageBox.Show("クリアしますか?", "確認ダイアログ", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) = DialogResult.Yes Then
             DataNoTbox.Text = ""
@@ -79,6 +80,7 @@ Public Class Main
         End If
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
+        Media.SystemSounds.Exclamation.Play()
         If MessageBox.Show("終了しますか?", "確認ダイアログ", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) = DialogResult.Yes Then
             Close()
@@ -150,7 +152,6 @@ Public Class Main
                 Return False
             End If
         Catch ex As Exception
-            MsgBox("エラー")
             Return False
         End Try
     End Function
@@ -176,6 +177,7 @@ Public Class Main
         If BluetoothConnect(True) = True Then
             MsgBox("Connect Success")
         Else
+            Media.SystemSounds.Exclamation.Play()
             MsgBox("Connect Error")
         End If
     End Sub

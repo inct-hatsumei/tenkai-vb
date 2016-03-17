@@ -55,7 +55,7 @@ Public Class Main
             AcelXTbox.Text & "," & AcelYTbox.Text & "," &
             AcelZTbox.Text & "," & vbCrLf & RcpDataTbox.Text
         TrafTbox.Text = byteNum / 1024
-        showChart(CpuUseTbox.Text)
+        showGravChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
     End Sub
     Private Sub ClearBtn_Click_1(sender As Object, e As EventArgs) Handles ClearBtn.Click
         Media.SystemSounds.Exclamation.Play()
@@ -77,6 +77,8 @@ Public Class Main
             RcpDataTbox.Text = ""
             DataNo = 0
             TrafStatBar.Visible = False
+            '初期化
+            Chart1.Series.Clear()
         End If
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
@@ -188,38 +190,37 @@ Public Class Main
             MsgBox("Disconnect Error")
         End If
     End Sub
-    Private Function showChart(temp As String)
-        'データの取得
-        GetData(temp)
-        'Chartコントロールにデータソースを設定
-        Chart1.DataSource = ds
-        Chart1.DataBind()
-    End Function
-    ' データの設定
-    Private Function GetData(temp As String)
+    Private Function showGravChart(gravX As String, gravY As String, gravZ As String)
+
         'データの追加
         dtRow = ds.Tables(0).NewRow
         dtRow(0) = Date.Now.ToString("HH:mm:ss")
-        dtRow(1) = Single.Parse(temp)
+        dtRow(1) = Single.Parse(gravX)
+        dtRow(2) = Single.Parse(gravY)
+        dtRow(3) = Single.Parse(gravZ)
+
         ds.Tables(0).Rows.Add(dtRow)
 
         If ds.Tables(0).Rows.Count = 21 And DatasetDelete = False Then
             ds.Tables(0).Rows(0).Delete()
-            'DatasetDelete = True
         End If
-        'If DatasetDelete = True Then
-        '
-        'End If
+
+        'Chartコントロールにデータソースを設定
+        Chart1.DataSource = ds
+        Chart1.DataBind()
     End Function
     Private Function InitializeChart()
         '初期化
         Chart1.Series.Clear()
+
         '列の作成
         dt.Columns.Add("数値", Type.GetType("System.String"))
-        dt.Columns.Add("CPU使用率", Type.GetType("System.Single"))
+        dt.Columns.Add("X軸", Type.GetType("System.Single"))
+        dt.Columns.Add("Y軸", Type.GetType("System.Single"))
+        dt.Columns.Add("Z軸", Type.GetType("System.Single"))
         ds.Tables.Add(dt)
         'Chartコントロールにタイトルを設定
-        Chart1.Titles.Add("機体状況")
+        Chart1.Titles.Add("機体姿勢")
 
         'グラフの種類,系列,軸の設定
         For I As Integer = 1 To ds.Tables(0).Columns.Count - 1
@@ -230,8 +231,7 @@ Public Class Main
             Chart1.Series.Add(columnName)
 
             'グラフの種類を折れ線グラフにする
-            Chart1.Series(columnName).ChartType = SeriesChartType.Line
-
+            Chart1.Series(columnName).ChartType = SeriesChartType.Spline
             'X軸
             Chart1.Series(columnName).XValueMember = ds.Tables(0).Columns(0).ColumnName.ToString
             Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False

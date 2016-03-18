@@ -23,25 +23,12 @@ Partial Class BluetoothConfig
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.PortNumUd = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.OkBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.BluetoothSppPorts = New System.Windows.Forms.ComboBox()
         Me.BluetoothSppConfig = New System.IO.Ports.SerialPort(Me.components)
-        CType(Me.PortNumUd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PortNumUd
-        '
-        Me.PortNumUd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PortNumUd.BackColor = System.Drawing.SystemColors.Control
-        Me.PortNumUd.ForeColor = System.Drawing.Color.Black
-        Me.PortNumUd.Location = New System.Drawing.Point(15, 42)
-        Me.PortNumUd.Name = "PortNumUd"
-        Me.PortNumUd.Size = New System.Drawing.Size(120, 25)
-        Me.PortNumUd.TabIndex = 1
-        Me.PortNumUd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label1
         '
@@ -88,16 +75,13 @@ Partial Class BluetoothConfig
         Me.Controls.Add(Me.BluetoothSppPorts)
         Me.Controls.Add(Me.CancelBtn)
         Me.Controls.Add(Me.OkBtn)
-        Me.Controls.Add(Me.PortNumUd)
         Me.Controls.Add(Me.Label1)
         Me.Name = "BluetoothConfig"
         Me.Text = "BluetoothConfig"
-        CType(Me.PortNumUd, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents PortNumUd As NumericUpDown
     Friend WithEvents Label1 As Label
     Friend WithEvents OkBtn As Button
     Friend WithEvents CancelBtn As Button

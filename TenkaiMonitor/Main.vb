@@ -14,7 +14,7 @@ Public Class Main
     Dim DatasetDelete As Boolean = False
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChangeColor(My.Settings.Color)
-        InitializeChart()
+        InitializeAcelChart()
         JstClock.Enabled = True
     End Sub
     Delegate Sub DataDelegate(ByVal sdata As String)
@@ -29,24 +29,23 @@ Public Class Main
         Invoke(adre, ReceivedData)
     End Sub
     Private Sub Display(ByVal ReceivedData As String)
-        TrafStatBar.Visible = True
         byteNum += SjisEnc.GetByteCount(ReceivedData)
         DataNo += 1
-        Dim A As Object
-        A = Split(ReceivedData, ",")
-        MissTimeTbox.Text = A(0)
+        Dim ReceivedDataObj As Object
+        ReceivedDataObj = Split(ReceivedData, ",")
+        MissTimeTbox.Text = ReceivedDataObj(0)
 
         DataNoTbox.Text = DataNo
-        CpuUseTbox.Text = A(1)
-        MemUseTbox.Text = A(2)
-        TempTbox.Text = A(3)
-        BtryTbox.Text = A(4)
-        LatTbox.Text = A(5)
-        LonTbox.Text = A(6)
-        AdvTbox.Text = A(7)
-        AcelXTbox.Text = A(8)
-        AcelYTbox.Text = A(9)
-        AcelZTbox.Text = A(10)
+        CpuUseTbox.Text = ReceivedDataObj(1)
+        MemUseTbox.Text = ReceivedDataObj(2)
+        TempTbox.Text = ReceivedDataObj(3)
+        BtryTbox.Text = ReceivedDataObj(4)
+        LatTbox.Text = ReceivedDataObj(5)
+        LonTbox.Text = ReceivedDataObj(6)
+        AdvTbox.Text = ReceivedDataObj(7)
+        AcelXTbox.Text = ReceivedDataObj(8)
+        AcelYTbox.Text = ReceivedDataObj(9)
+        AcelZTbox.Text = ReceivedDataObj(10)
         RcpDataTbox.Text =
             MissTimeTbox.Text & "," & CpuUseTbox.Text & "," &
             MemUseTbox.Text & "," & TempTbox.Text & "," &
@@ -55,7 +54,7 @@ Public Class Main
             AcelXTbox.Text & "," & AcelYTbox.Text & "," &
             AcelZTbox.Text & "," & vbCrLf & RcpDataTbox.Text
         TrafTbox.Text = byteNum / 1024
-        showGravChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
+        showAcelChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
     End Sub
     Private Sub ClearBtn_Click_1(sender As Object, e As EventArgs) Handles ClearBtn.Click
         Media.SystemSounds.Exclamation.Play()
@@ -78,7 +77,7 @@ Public Class Main
             DataNo = 0
             TrafStatBar.Visible = False
             '初期化
-            Chart1.Series.Clear()
+            AcelChart.Series.Clear()
         End If
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
@@ -147,8 +146,6 @@ Public Class Main
                 Return True
             ElseIf connect = False
                 BluetoothSpp.Close()
-                TrafStatBar.Visible = False
-                TrafStatLbl.Text = "OFFLINE"
                 Return True
             Else
                 Return False
@@ -190,14 +187,14 @@ Public Class Main
             MsgBox("Disconnect Error")
         End If
     End Sub
-    Private Function showGravChart(gravX As String, gravY As String, gravZ As String)
+    Private Function showAcelChart(AcelX As String, AcelY As String, AcelZ As String)
 
         'データの追加
         dtRow = ds.Tables(0).NewRow
         dtRow(0) = Date.Now.ToString("HH:mm:ss")
-        dtRow(1) = Single.Parse(gravX)
-        dtRow(2) = Single.Parse(gravY)
-        dtRow(3) = Single.Parse(gravZ)
+        dtRow(1) = Single.Parse(AcelX)
+        dtRow(2) = Single.Parse(AcelY)
+        dtRow(3) = Single.Parse(AcelZ)
 
         ds.Tables(0).Rows.Add(dtRow)
 
@@ -206,12 +203,12 @@ Public Class Main
         End If
 
         'Chartコントロールにデータソースを設定
-        Chart1.DataSource = ds
-        Chart1.DataBind()
+        AcelChart.DataSource = ds
+        AcelChart.DataBind()
     End Function
-    Private Function InitializeChart()
+    Private Function InitializeAcelChart()
         '初期化
-        Chart1.Series.Clear()
+        AcelChart.Series.Clear()
 
         '列の作成
         dt.Columns.Add("数値", Type.GetType("System.String"))
@@ -220,7 +217,7 @@ Public Class Main
         dt.Columns.Add("Z軸", Type.GetType("System.Single"))
         ds.Tables.Add(dt)
         'Chartコントロールにタイトルを設定
-        Chart1.Titles.Add("機体姿勢")
+        AcelChart.Titles.Add("機体姿勢")
 
         'グラフの種類,系列,軸の設定
         For I As Integer = 1 To ds.Tables(0).Columns.Count - 1
@@ -228,20 +225,28 @@ Public Class Main
             Dim columnName As String = ds.Tables(0).Columns(I).ColumnName
 
             '系列の設定
-            Chart1.Series.Add(columnName)
+            AcelChart.Series.Add(columnName)
 
             'グラフの種類を折れ線グラフにする
-            Chart1.Series(columnName).ChartType = SeriesChartType.Spline
+            AcelChart.Series(columnName).ChartType = SeriesChartType.Spline
             'X軸
-            Chart1.Series(columnName).XValueMember = ds.Tables(0).Columns(0).ColumnName.ToString
-            Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False
-            Chart1.ChartAreas(0).AxisX.MinorGrid.Enabled = False
+            AcelChart.Series(columnName).XValueMember = ds.Tables(0).Columns(0).ColumnName.ToString
+            AcelChart.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+            AcelChart.ChartAreas(0).AxisX.MinorGrid.Enabled = False
 
             'Y軸
-            Chart1.Series(columnName).YValueMembers = columnName
+            AcelChart.Series(columnName).YValueMembers = columnName
         Next
 
         'X軸タイトル
-        Chart1.ChartAreas(0).AxisX.Title = "時刻"
+        AcelChart.ChartAreas(0).AxisX.Title = "時刻"
     End Function
+
+    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Media.SystemSounds.Exclamation.Play()
+        If MessageBox.Show("終了しますか?", "確認ダイアログ", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) = DialogResult.Yes Then
+            Close()
+        End If
+    End Sub
 End Class

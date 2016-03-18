@@ -22,10 +22,13 @@ Partial Class BluetoothConfig
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.PortNumUd = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.OkBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
+        Me.BluetoothSppPorts = New System.Windows.Forms.ComboBox()
+        Me.BluetoothSppConfig = New System.IO.Ports.SerialPort(Me.components)
         CType(Me.PortNumUd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -34,7 +37,7 @@ Partial Class BluetoothConfig
         Me.PortNumUd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PortNumUd.BackColor = System.Drawing.SystemColors.Control
         Me.PortNumUd.ForeColor = System.Drawing.Color.Black
-        Me.PortNumUd.Location = New System.Drawing.Point(188, 12)
+        Me.PortNumUd.Location = New System.Drawing.Point(15, 42)
         Me.PortNumUd.Name = "PortNumUd"
         Me.PortNumUd.Size = New System.Drawing.Size(120, 25)
         Me.PortNumUd.TabIndex = 1
@@ -69,11 +72,20 @@ Partial Class BluetoothConfig
         Me.CancelBtn.Text = "Cancel"
         Me.CancelBtn.UseVisualStyleBackColor = True
         '
+        'BluetoothSppPorts
+        '
+        Me.BluetoothSppPorts.FormattingEnabled = True
+        Me.BluetoothSppPorts.Location = New System.Drawing.Point(107, 6)
+        Me.BluetoothSppPorts.Name = "BluetoothSppPorts"
+        Me.BluetoothSppPorts.Size = New System.Drawing.Size(201, 26)
+        Me.BluetoothSppPorts.TabIndex = 4
+        '
         'BluetoothConfig
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(320, 122)
+        Me.Controls.Add(Me.BluetoothSppPorts)
         Me.Controls.Add(Me.CancelBtn)
         Me.Controls.Add(Me.OkBtn)
         Me.Controls.Add(Me.PortNumUd)
@@ -89,4 +101,6 @@ Partial Class BluetoothConfig
     Friend WithEvents Label1 As Label
     Friend WithEvents OkBtn As Button
     Friend WithEvents CancelBtn As Button
+    Friend WithEvents BluetoothSppPorts As ComboBox
+    Friend WithEvents BluetoothSppConfig As IO.Ports.SerialPort
 End Class

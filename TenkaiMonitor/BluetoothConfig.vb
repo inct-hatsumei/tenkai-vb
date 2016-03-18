@@ -11,4 +11,13 @@
     Private Sub BluetoothConfig_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PortNumUd.Value = My.Settings.BluetoothPort
     End Sub
+
+    Private Sub ComboBox1_DropDown(sender As Object, e As EventArgs) Handles BluetoothSppPorts.DropDown
+        Dim PortList As String() = BluetoothSppConfig.GetPortNames()
+        Dim port As String
+        BluetoothSppPorts.Items.Clear()
+        For Each port In PortList
+            BluetoothSppPorts.Items.Add(port)
+        Next port
+    End Sub
 End Class

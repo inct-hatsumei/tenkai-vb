@@ -4,7 +4,7 @@ Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class Main
     Dim SjisEnc As Encoding = Encoding.GetEncoding("Shift_JIS")
-    Dim PortNo As Integer
+    Dim PortNo As String
     Dim DataNo As Integer = 0
     Dim byteNum As Integer = 0
     'グラフ関連
@@ -138,10 +138,10 @@ Public Class Main
         Try
             If connect = True Then
                 If BluetoothSpp.IsOpen = True Then
-                    MsgBox("COM" & PortNo & "はすでにオープンされています。")
+                    MsgBox(PortNo & "はすでにオープンされています。")
                     Return True
                 End If
-                BluetoothSpp.PortName = "COM" & PortNo
+                BluetoothSpp.PortName = PortNo
                 BluetoothSpp.Open()
                 BluetoothSpp.Encoding = Encoding.GetEncoding(65001)
                 Return True

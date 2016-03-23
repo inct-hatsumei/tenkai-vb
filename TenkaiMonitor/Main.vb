@@ -74,18 +74,14 @@ Public Class Main
             OprTimeTbox.Text = ""
             TrafTbox.Text = ""
             RcpDataTbox.Text = ""
+            SendComTBox.Text = ""
             DataNo = 0
-            TrafStatBar.Visible = False
             '初期化
             AcelChart.Series.Clear()
         End If
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
-        Media.SystemSounds.Exclamation.Play()
-        If MessageBox.Show("終了しますか?", "確認ダイアログ", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) = DialogResult.Yes Then
-            Close()
-        End If
+        Close()
     End Sub
     Private Sub BlackToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BlackToolStripMenuItem.Click
         My.Settings.Color = Color.Black
@@ -126,11 +122,16 @@ Public Class Main
         ClearBtn.BackColor = bgcolor
         LogSaveBtn.BackColor = bgcolor
         ExitBtn.BackColor = bgcolor
+        SendComTBox.BackColor = bgcolor
+        SendComBtn.BackColor = bgcolor
+        CancelComBtn.BackColor = bgcolor
         GroupBox1.BackColor = bgcolor
         GroupBox2.BackColor = bgcolor
         GroupBox3.BackColor = bgcolor
         GroupBox5.BackColor = bgcolor
         GroupBox6.BackColor = bgcolor
+
+        AcelChart.ChartAreas(0).BackColor = bgcolor
     End Function
     Private Function BluetoothConnect(connect As Boolean) As Boolean
         PortNo = My.Settings.BluetoothPort
@@ -217,8 +218,7 @@ Public Class Main
         dt.Columns.Add("Z軸", Type.GetType("System.Single"))
         ds.Tables.Add(dt)
         'Chartコントロールにタイトルを設定
-        AcelChart.Titles.Add("機体姿勢")
-
+        AcelChart.Titles.Add("機体姿勢").ForeColor = Color.Green
         'グラフの種類,系列,軸の設定
         For I As Integer = 1 To ds.Tables(0).Columns.Count - 1
             '列名の取得
@@ -237,16 +237,40 @@ Public Class Main
             'Y軸
             AcelChart.Series(columnName).YValueMembers = columnName
         Next
-
         'X軸タイトル
         AcelChart.ChartAreas(0).AxisX.Title = "時刻"
     End Function
-
+    Private Function sendCommand(com As String) As Boolean
+        If com = "" Then
+            Return False
+        End If
+        Try
+            BluetoothSpp.Write(com)
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        End Try
+    End Function
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Media.SystemSounds.Exclamation.Play()
         If MessageBox.Show("終了しますか?", "確認ダイアログ", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) = DialogResult.Yes Then
-            Close()
+                        MessageBoxIcon.Question) = DialogResult.No Then
+            e.Cancel = True
+        Else
+            Return
         End If
+    End Sub
+
+    Private Sub SendComBtn_Click(sender As Object, e As EventArgs) Handles SendComBtn.Click
+        If sendCommand(SendComTBox.Text) = False Then
+            MsgBox("送信に失敗しました。")
+        Else
+            SendComTBox.Text = ""
+        End If
+    End Sub
+
+    Private Sub CancelComBtn_Click(sender As Object, e As EventArgs) Handles CancelComBtn.Click
+        SendComTBox.Text = ""
     End Sub
 End Class

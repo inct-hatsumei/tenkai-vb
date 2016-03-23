@@ -23,19 +23,19 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint11 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
-        Dim DataPoint12 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
-        Dim DataPoint13 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
-        Dim DataPoint14 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
-        Dim DataPoint15 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
-        Dim DataPoint16 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
-        Dim DataPoint17 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
-        Dim DataPoint18 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
-        Dim DataPoint19 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
-        Dim DataPoint20 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint1 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
+        Dim DataPoint2 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
+        Dim DataPoint3 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
+        Dim DataPoint4 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
+        Dim DataPoint5 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
+        Dim DataPoint6 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
+        Dim DataPoint7 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
+        Dim DataPoint8 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
+        Dim DataPoint9 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
+        Dim DataPoint10 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
         Me.BluetoothSpp = New System.IO.Ports.SerialPort(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ExitBtn = New System.Windows.Forms.Button()
@@ -73,8 +73,6 @@ Partial Class Main
         Me.MissTimeTbox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.AcelChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.TrafStatBar = New System.Windows.Forms.ProgressBar()
-        Me.TrafStatLbl = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.MenuBar = New System.Windows.Forms.MenuStrip()
         Me.Mission = New System.Windows.Forms.ToolStripMenuItem()
@@ -101,6 +99,10 @@ Partial Class Main
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.JstTbox = New System.Windows.Forms.TextBox()
         Me.JstClock = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.SendComTBox = New System.Windows.Forms.TextBox()
+        Me.SendComBtn = New System.Windows.Forms.Button()
+        Me.CancelComBtn = New System.Windows.Forms.Button()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -170,6 +172,7 @@ Partial Class Main
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RcpDataTbox.BackColor = System.Drawing.SystemColors.Control
+        Me.RcpDataTbox.ForeColor = System.Drawing.Color.Green
         Me.RcpDataTbox.Location = New System.Drawing.Point(7, 25)
         Me.RcpDataTbox.Multiline = True
         Me.RcpDataTbox.Name = "RcpDataTbox"
@@ -221,7 +224,7 @@ Partial Class Main
         '
         Me.OprTimeTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OprTimeTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.OprTimeTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.OprTimeTbox.ForeColor = System.Drawing.Color.Green
         Me.OprTimeTbox.Location = New System.Drawing.Point(138, 366)
         Me.OprTimeTbox.Name = "OprTimeTbox"
         Me.OprTimeTbox.ReadOnly = True
@@ -233,7 +236,7 @@ Partial Class Main
         '
         Me.AcelZTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AcelZTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.AcelZTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.AcelZTbox.ForeColor = System.Drawing.Color.Green
         Me.AcelZTbox.Location = New System.Drawing.Point(138, 335)
         Me.AcelZTbox.Name = "AcelZTbox"
         Me.AcelZTbox.ReadOnly = True
@@ -245,7 +248,7 @@ Partial Class Main
         '
         Me.AcelYTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AcelYTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.AcelYTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.AcelYTbox.ForeColor = System.Drawing.Color.Green
         Me.AcelYTbox.Location = New System.Drawing.Point(138, 304)
         Me.AcelYTbox.Name = "AcelYTbox"
         Me.AcelYTbox.ReadOnly = True
@@ -257,7 +260,7 @@ Partial Class Main
         '
         Me.AcelXTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AcelXTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.AcelXTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.AcelXTbox.ForeColor = System.Drawing.Color.Green
         Me.AcelXTbox.Location = New System.Drawing.Point(138, 273)
         Me.AcelXTbox.Name = "AcelXTbox"
         Me.AcelXTbox.ReadOnly = True
@@ -269,7 +272,7 @@ Partial Class Main
         '
         Me.AdvTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AdvTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.AdvTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.AdvTbox.ForeColor = System.Drawing.Color.Green
         Me.AdvTbox.Location = New System.Drawing.Point(138, 242)
         Me.AdvTbox.Name = "AdvTbox"
         Me.AdvTbox.ReadOnly = True
@@ -281,7 +284,7 @@ Partial Class Main
         '
         Me.LonTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LonTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.LonTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.LonTbox.ForeColor = System.Drawing.Color.Green
         Me.LonTbox.Location = New System.Drawing.Point(138, 211)
         Me.LonTbox.Name = "LonTbox"
         Me.LonTbox.ReadOnly = True
@@ -293,7 +296,7 @@ Partial Class Main
         '
         Me.TrafTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TrafTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.TrafTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TrafTbox.ForeColor = System.Drawing.Color.Green
         Me.TrafTbox.Location = New System.Drawing.Point(138, 397)
         Me.TrafTbox.Name = "TrafTbox"
         Me.TrafTbox.ReadOnly = True
@@ -413,7 +416,7 @@ Partial Class Main
         '
         Me.LatTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LatTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.LatTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.LatTbox.ForeColor = System.Drawing.Color.Green
         Me.LatTbox.Location = New System.Drawing.Point(138, 180)
         Me.LatTbox.Name = "LatTbox"
         Me.LatTbox.ReadOnly = True
@@ -425,7 +428,7 @@ Partial Class Main
         '
         Me.BtryTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtryTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.BtryTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.BtryTbox.ForeColor = System.Drawing.Color.Green
         Me.BtryTbox.Location = New System.Drawing.Point(138, 149)
         Me.BtryTbox.Name = "BtryTbox"
         Me.BtryTbox.ReadOnly = True
@@ -437,7 +440,7 @@ Partial Class Main
         '
         Me.TempTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TempTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.TempTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TempTbox.ForeColor = System.Drawing.Color.Green
         Me.TempTbox.Location = New System.Drawing.Point(138, 118)
         Me.TempTbox.Name = "TempTbox"
         Me.TempTbox.ReadOnly = True
@@ -449,7 +452,7 @@ Partial Class Main
         '
         Me.MemUseTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MemUseTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.MemUseTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.MemUseTbox.ForeColor = System.Drawing.Color.Green
         Me.MemUseTbox.Location = New System.Drawing.Point(138, 87)
         Me.MemUseTbox.Name = "MemUseTbox"
         Me.MemUseTbox.ReadOnly = True
@@ -461,7 +464,7 @@ Partial Class Main
         '
         Me.CpuUseTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CpuUseTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.CpuUseTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.CpuUseTbox.ForeColor = System.Drawing.Color.Green
         Me.CpuUseTbox.Location = New System.Drawing.Point(138, 56)
         Me.CpuUseTbox.Name = "CpuUseTbox"
         Me.CpuUseTbox.ReadOnly = True
@@ -473,7 +476,7 @@ Partial Class Main
         '
         Me.DataNoTbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataNoTbox.BackColor = System.Drawing.SystemColors.Control
-        Me.DataNoTbox.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.DataNoTbox.ForeColor = System.Drawing.Color.Green
         Me.DataNoTbox.Location = New System.Drawing.Point(138, 25)
         Me.DataNoTbox.Name = "DataNoTbox"
         Me.DataNoTbox.ReadOnly = True
@@ -535,66 +538,84 @@ Partial Class Main
         Me.AcelChart.BackColor = System.Drawing.Color.Transparent
         Me.AcelChart.BackSecondaryColor = System.Drawing.Color.Transparent
         Me.AcelChart.BorderlineColor = System.Drawing.Color.Transparent
-        ChartArea2.BackSecondaryColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.AcelChart.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.AcelChart.Legends.Add(Legend2)
+        ChartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Green
+        ChartArea1.AxisX.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisX.TitleForeColor = System.Drawing.Color.Green
+        ChartArea1.AxisY.InterlacedColor = System.Drawing.Color.Green
+        ChartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Green
+        ChartArea1.AxisY.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
+        ChartArea1.AxisY.TitleForeColor = System.Drawing.Color.Green
+        ChartArea1.BackSecondaryColor = System.Drawing.Color.Transparent
+        ChartArea1.BorderColor = System.Drawing.Color.Green
+        ChartArea1.CursorX.LineColor = System.Drawing.Color.Green
+        ChartArea1.CursorY.LineColor = System.Drawing.Color.Green
+        ChartArea1.Name = "ChartArea1"
+        Me.AcelChart.ChartAreas.Add(ChartArea1)
+        Legend1.BackColor = System.Drawing.Color.Transparent
+        Legend1.BorderColor = System.Drawing.Color.Green
+        Legend1.ForeColor = System.Drawing.Color.Green
+        Legend1.ItemColumnSeparatorColor = System.Drawing.Color.Green
+        Legend1.Name = "Legend1"
+        Legend1.TitleBackColor = System.Drawing.Color.Transparent
+        Legend1.TitleForeColor = System.Drawing.Color.Green
+        Legend1.TitleSeparatorColor = System.Drawing.Color.Green
+        Me.AcelChart.Legends.Add(Legend1)
         Me.AcelChart.Location = New System.Drawing.Point(6, 24)
         Me.AcelChart.Name = "AcelChart"
         Me.AcelChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series2.Color = System.Drawing.Color.Transparent
-        Series2.Legend = "Legend1"
-        Series2.Name = "グラフ1"
-        Series2.Points.Add(DataPoint11)
-        Series2.Points.Add(DataPoint12)
-        Series2.Points.Add(DataPoint13)
-        Series2.Points.Add(DataPoint14)
-        Series2.Points.Add(DataPoint15)
-        Series2.Points.Add(DataPoint16)
-        Series2.Points.Add(DataPoint17)
-        Series2.Points.Add(DataPoint18)
-        Series2.Points.Add(DataPoint19)
-        Series2.Points.Add(DataPoint20)
-        Me.AcelChart.Series.Add(Series2)
+        Series1.BorderColor = System.Drawing.Color.Green
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.Color = System.Drawing.Color.Green
+        Series1.EmptyPointStyle.BorderColor = System.Drawing.Color.Green
+        Series1.EmptyPointStyle.Color = System.Drawing.Color.Green
+        Series1.EmptyPointStyle.LabelBorderColor = System.Drawing.Color.Green
+        Series1.EmptyPointStyle.LabelForeColor = System.Drawing.Color.Green
+        Series1.EmptyPointStyle.MarkerColor = System.Drawing.Color.Green
+        Series1.LabelBorderColor = System.Drawing.Color.Green
+        Series1.LabelForeColor = System.Drawing.Color.Green
+        Series1.Legend = "Legend1"
+        Series1.MarkerBorderColor = System.Drawing.Color.Green
+        Series1.MarkerColor = System.Drawing.Color.Green
+        Series1.Name = "グラフ1"
+        Series1.Points.Add(DataPoint1)
+        Series1.Points.Add(DataPoint2)
+        Series1.Points.Add(DataPoint3)
+        Series1.Points.Add(DataPoint4)
+        Series1.Points.Add(DataPoint5)
+        Series1.Points.Add(DataPoint6)
+        Series1.Points.Add(DataPoint7)
+        Series1.Points.Add(DataPoint8)
+        Series1.Points.Add(DataPoint9)
+        Series1.Points.Add(DataPoint10)
+        Series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
+        Me.AcelChart.Series.Add(Series1)
         Me.AcelChart.Size = New System.Drawing.Size(1537, 300)
         Me.AcelChart.TabIndex = 0
         Me.AcelChart.Text = "AcelChart"
-        '
-        'TrafStatBar
-        '
-        Me.TrafStatBar.Location = New System.Drawing.Point(11, 42)
-        Me.TrafStatBar.Name = "TrafStatBar"
-        Me.TrafStatBar.Size = New System.Drawing.Size(301, 20)
-        Me.TrafStatBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee
-        Me.TrafStatBar.TabIndex = 20
-        Me.TrafStatBar.Visible = False
-        '
-        'TrafStatLbl
-        '
-        Me.TrafStatLbl.AutoSize = True
-        Me.TrafStatLbl.BackColor = System.Drawing.Color.Transparent
-        Me.TrafStatLbl.Location = New System.Drawing.Point(47, 21)
-        Me.TrafStatLbl.Name = "TrafStatLbl"
-        Me.TrafStatLbl.Size = New System.Drawing.Size(77, 18)
-        Me.TrafStatLbl.TabIndex = 22
-        Me.TrafStatLbl.Text = "OFFLINE"
         '
         'GroupBox6
         '
         Me.GroupBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox6.Controls.Add(Me.TrafStatLbl)
-        Me.GroupBox6.Controls.Add(Me.TrafStatBar)
+        Me.GroupBox6.Controls.Add(Me.CancelComBtn)
+        Me.GroupBox6.Controls.Add(Me.SendComBtn)
+        Me.GroupBox6.Controls.Add(Me.SendComTBox)
+        Me.GroupBox6.Controls.Add(Me.Label1)
         Me.GroupBox6.ForeColor = System.Drawing.Color.Green
         Me.GroupBox6.Location = New System.Drawing.Point(12, 631)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(319, 186)
         Me.GroupBox6.TabIndex = 0
         Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "通信状況"
+        Me.GroupBox6.Text = "コマンド送信"
         '
         'MenuBar
         '
@@ -762,6 +783,41 @@ Partial Class Main
         '
         Me.JstClock.Interval = 1000
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(7, 21)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(96, 18)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "送信コマンド"
+        '
+        'SendComTBox
+        '
+        Me.SendComTBox.ForeColor = System.Drawing.Color.Green
+        Me.SendComTBox.Location = New System.Drawing.Point(10, 42)
+        Me.SendComTBox.Name = "SendComTBox"
+        Me.SendComTBox.Size = New System.Drawing.Size(302, 25)
+        Me.SendComTBox.TabIndex = 1
+        '
+        'SendComBtn
+        '
+        Me.SendComBtn.Location = New System.Drawing.Point(199, 73)
+        Me.SendComBtn.Name = "SendComBtn"
+        Me.SendComBtn.Size = New System.Drawing.Size(113, 39)
+        Me.SendComBtn.TabIndex = 2
+        Me.SendComBtn.Text = "送信"
+        Me.SendComBtn.UseVisualStyleBackColor = True
+        '
+        'CancelComBtn
+        '
+        Me.CancelComBtn.Location = New System.Drawing.Point(80, 73)
+        Me.CancelComBtn.Name = "CancelComBtn"
+        Me.CancelComBtn.Size = New System.Drawing.Size(113, 39)
+        Me.CancelComBtn.TabIndex = 2
+        Me.CancelComBtn.Text = "キャンセル"
+        Me.CancelComBtn.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
@@ -777,7 +833,7 @@ Partial Class Main
         Me.Controls.Add(Me.MenuBar)
         Me.MainMenuStrip = Me.MenuBar
         Me.Name = "Main"
-        Me.Text = "てんかい地上局ソフト"
+        Me.Text = "てんかいモニタリングソフト"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -833,8 +889,6 @@ Partial Class Main
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents TrafStatBar As ProgressBar
-    Friend WithEvents TrafStatLbl As Label
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents MenuBar As MenuStrip
     Friend WithEvents Mission As ToolStripMenuItem
@@ -862,4 +916,8 @@ Partial Class Main
     Friend WithEvents JstClock As Timer
     Friend WithEvents OutlierConfig As ToolStripMenuItem
     Friend WithEvents AcelChart As DataVisualization.Charting.Chart
+    Friend WithEvents CancelComBtn As Button
+    Friend WithEvents SendComBtn As Button
+    Friend WithEvents SendComTBox As TextBox
+    Friend WithEvents Label1 As Label
 End Class

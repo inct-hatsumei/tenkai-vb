@@ -8,10 +8,14 @@ Public Class Main
     Dim DataNo As Integer = 0
     Dim byteNum As Integer = 0
     'グラフ関連
-    Dim ds As New DataSet
-    Dim dt As New DataTable
-    Dim dtRow As DataRow
-    Dim DatasetDelete As Boolean = False
+    Dim AcelDataSet As New DataSet
+    Dim AcelDataTable As New DataTable
+    Dim AcelDataTableRow As DataRow
+    Dim AcelDatasetDelete As Boolean = False
+    Dim ProcDataSet As New DataSet
+    Dim ProcDataTable As New DataTable
+    Dim ProcDataTableRow As DataRow
+    Dim ProcDatasetDelete As Boolean = False
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChangeColor(My.Settings.Color)
         InitializeAcelChart()
@@ -55,6 +59,7 @@ Public Class Main
             AcelZTbox.Text & "," & vbCrLf & RcpDataTbox.Text
         TrafTbox.Text = byteNum / 1024
         showAcelChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
+        showProcChart(CpuUseTbox.Text, MemUseTbox.Text)
     End Sub
     Private Sub ClearBtn_Click_1(sender As Object, e As EventArgs) Handles ClearBtn.Click
         Media.SystemSounds.Exclamation.Play()
@@ -78,6 +83,7 @@ Public Class Main
             DataNo = 0
             '初期化
             AcelChart.Series.Clear()
+            ProcChart.Series.Clear()
         End If
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
@@ -128,6 +134,7 @@ Public Class Main
         GroupBox1.BackColor = bgcolor
         GroupBox2.BackColor = bgcolor
         GroupBox3.BackColor = bgcolor
+        GroupBox4.BackColor = bgcolor
         GroupBox5.BackColor = bgcolor
         GroupBox6.BackColor = bgcolor
 
@@ -188,41 +195,66 @@ Public Class Main
             MsgBox("Disconnect Error")
         End If
     End Sub
-    Private Function showAcelChart(AcelX As String, AcelY As String, AcelZ As String)
-
+    Private Function showProcChart(cpu As String, mem As String)
         'データの追加
-        dtRow = ds.Tables(0).NewRow
-        dtRow(0) = Date.Now.ToString("HH:mm:ss")
-        dtRow(1) = Single.Parse(AcelX)
-        dtRow(2) = Single.Parse(AcelY)
-        dtRow(3) = Single.Parse(AcelZ)
+        ProcDataTableRow = ProcDataSet.Tables(0).NewRow
+        ProcDataTableRow(0) = Date.Now.ToString("HH:mm:ss")
+        ProcDataTableRow(1) = Single.Parse(cpu)
+        ProcDataTableRow(2) = Single.Parse(mem)
 
-        ds.Tables(0).Rows.Add(dtRow)
+        ProcDataSet.Tables(0).Rows.Add(ProcDataTableRow)
 
-        If ds.Tables(0).Rows.Count = 21 And DatasetDelete = False Then
-            ds.Tables(0).Rows(0).Delete()
+        If ProcDataSet.Tables(0).Rows.Count = 21 And ProcDatasetDelete = False Then
+            ProcDataSet.Tables(0).Rows(0).Delete()
         End If
 
         'Chartコントロールにデータソースを設定
-        AcelChart.DataSource = ds
+        ProcChart.DataSource = ProcDataSet
+        ProcChart.DataBind()
+    End Function
+    Private Function showAcelChart(AcelX As String, AcelY As String, AcelZ As String)
+
+        'データの追加
+        AcelDataTableRow = AcelDataSet.Tables(0).NewRow
+        AcelDataTableRow(0) = Date.Now.ToString("HH:mm:ss")
+        AcelDataTableRow(1) = Single.Parse(AcelX)
+        AcelDataTableRow(2) = Single.Parse(AcelY)
+        AcelDataTableRow(3) = Single.Parse(AcelZ)
+
+        AcelDataSet.Tables(0).Rows.Add(AcelDataTableRow)
+
+        If AcelDataSet.Tables(0).Rows.Count = 21 And AcelDatasetDelete = False Then
+            AcelDataSet.Tables(0).Rows(0).Delete()
+        End If
+
+        'Chartコントロールにデータソースを設定
+        AcelChart.DataSource = AcelDataSet
         AcelChart.DataBind()
     End Function
     Private Function InitializeAcelChart()
         '初期化
         AcelChart.Series.Clear()
+        ProcChart.Series.Clear()
 
         '列の作成
-        dt.Columns.Add("数値", Type.GetType("System.String"))
-        dt.Columns.Add("X軸", Type.GetType("System.Single"))
-        dt.Columns.Add("Y軸", Type.GetType("System.Single"))
-        dt.Columns.Add("Z軸", Type.GetType("System.Single"))
-        ds.Tables.Add(dt)
+        AcelDataTable.Columns.Add("数値", Type.GetType("System.String"))
+        AcelDataTable.Columns.Add("X軸", Type.GetType("System.Single"))
+        AcelDataTable.Columns.Add("Y軸", Type.GetType("System.Single"))
+        AcelDataTable.Columns.Add("Z軸", Type.GetType("System.Single"))
+        AcelDataSet.Tables.Add(AcelDataTable)
+
+        ProcDataTable.Columns.Add("数値", Type.GetType("System.String"))
+        ProcDataTable.Columns.Add("CPU使用率", Type.GetType("System.Single"))
+        ProcDataTable.Columns.Add("メモリ使用率", Type.GetType("System.Single"))
+        ProcDataSet.Tables.Add(ProcDataTable)
         'Chartコントロールにタイトルを設定
         AcelChart.Titles.Add("機体姿勢").ForeColor = Color.Green
+        ProcChart.Titles.Add("プロセス情報").ForeColor = Color.Green
+
         'グラフの種類,系列,軸の設定
-        For I As Integer = 1 To ds.Tables(0).Columns.Count - 1
+        For I As Integer = 1 To AcelDataSet.Tables(0).Columns.Count - 1
             '列名の取得
-            Dim columnName As String = ds.Tables(0).Columns(I).ColumnName
+            Dim columnName As String = AcelDataSet.Tables(0).Columns(I).ColumnName
 
             '系列の設定
             AcelChart.Series.Add(columnName)
@@ -230,15 +262,38 @@ Public Class Main
             'グラフの種類を折れ線グラフにする
             AcelChart.Series(columnName).ChartType = SeriesChartType.Spline
             'X軸
-            AcelChart.Series(columnName).XValueMember = ds.Tables(0).Columns(0).ColumnName.ToString
+            AcelChart.Series(columnName).XValueMember = AcelDataSet.Tables(0).Columns(0).ColumnName.ToString
             AcelChart.ChartAreas(0).AxisX.MajorGrid.Enabled = False
             AcelChart.ChartAreas(0).AxisX.MinorGrid.Enabled = False
 
             'Y軸
             AcelChart.Series(columnName).YValueMembers = columnName
         Next
+
+        'グラフの種類,系列,軸の設定
+        For I As Integer = 1 To ProcDataSet.Tables(0).Columns.Count - 1
+            '列名の取得
+            Dim columnName As String = ProcDataSet.Tables(0).Columns(I).ColumnName
+
+            '系列の設定
+            ProcChart.Series.Add(columnName)
+
+            'グラフの種類を折れ線グラフにする
+            ProcChart.Series(columnName).ChartType = SeriesChartType.Line
+            'X軸
+            ProcChart.Series(columnName).XValueMember = ProcDataSet.Tables(0).Columns(0).ColumnName.ToString
+            ProcChart.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+            ProcChart.ChartAreas(0).AxisX.MinorGrid.Enabled = False
+
+            'Y軸
+            ProcChart.Series(columnName).YValueMembers = columnName
+        Next
+
         'X軸タイトル
         AcelChart.ChartAreas(0).AxisX.Title = "時刻"
+
+        'X軸タイトル
+        ProcChart.ChartAreas(0).AxisX.Title = "時刻"
     End Function
     Private Function sendCommand(com As String) As Boolean
         If com = "" Then

@@ -18,7 +18,7 @@ Public Class Main
     Dim ProcDatasetDelete As Boolean = False
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChangeColor(My.Settings.Color)
-        InitializeAcelChart()
+        InitializeCharts()
         JstClock.Enabled = True
     End Sub
     Delegate Sub DataDelegate(ByVal sdata As String)
@@ -46,7 +46,7 @@ Public Class Main
         BtryTbox.Text = ReceivedDataObj(4)
         LatTbox.Text = ReceivedDataObj(5)
         LonTbox.Text = ReceivedDataObj(6)
-        AdvTbox.Text = ReceivedDataObj(7)
+        AltTbox.Text = ReceivedDataObj(7)
         AcelXTbox.Text = ReceivedDataObj(8)
         AcelYTbox.Text = ReceivedDataObj(9)
         AcelZTbox.Text = ReceivedDataObj(10)
@@ -54,37 +54,12 @@ Public Class Main
             MissTimeTbox.Text & "," & CpuUseTbox.Text & "," &
             MemUseTbox.Text & "," & TempTbox.Text & "," &
             BtryTbox.Text & "," & LatTbox.Text & "," &
-            LonTbox.Text & "," & AdvTbox.Text & "," &
+            LonTbox.Text & "," & AltTbox.Text & "," &
             AcelXTbox.Text & "," & AcelYTbox.Text & "," &
             AcelZTbox.Text & "," & vbCrLf & RcpDataTbox.Text
         TrafTbox.Text = byteNum / 1024
         showAcelChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
         showProcChart(CpuUseTbox.Text, MemUseTbox.Text)
-    End Sub
-    Private Sub ClearBtn_Click_1(sender As Object, e As EventArgs) Handles ClearBtn.Click
-        Media.SystemSounds.Exclamation.Play()
-        If MessageBox.Show("クリアしますか?", "確認ダイアログ", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) = DialogResult.Yes Then
-            DataNoTbox.Text = ""
-            CpuUseTbox.Text = ""
-            MemUseTbox.Text = ""
-            TempTbox.Text = ""
-            BtryTbox.Text = ""
-            LatTbox.Text = ""
-            LonTbox.Text = ""
-            AdvTbox.Text = ""
-            AcelXTbox.Text = ""
-            AcelYTbox.Text = ""
-            AcelZTbox.Text = ""
-            OprTimeTbox.Text = ""
-            TrafTbox.Text = ""
-            RcpDataTbox.Text = ""
-            SendComTBox.Text = ""
-            DataNo = 0
-            '初期化
-            AcelChart.Series.Clear()
-            ProcChart.Series.Clear()
-        End If
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
         Close()
@@ -117,7 +92,7 @@ Public Class Main
         BtryTbox.BackColor = bgcolor
         LatTbox.BackColor = bgcolor
         LonTbox.BackColor = bgcolor
-        AdvTbox.BackColor = bgcolor
+        AltTbox.BackColor = bgcolor
         AcelXTbox.BackColor = bgcolor
         AcelYTbox.BackColor = bgcolor
         AcelZTbox.BackColor = bgcolor
@@ -125,7 +100,6 @@ Public Class Main
         TrafTbox.BackColor = bgcolor
         RcpDataTbox.BackColor = bgcolor
         JstTbox.BackColor = bgcolor
-        ClearBtn.BackColor = bgcolor
         LogSaveBtn.BackColor = bgcolor
         ExitBtn.BackColor = bgcolor
         SendComTBox.BackColor = bgcolor
@@ -231,7 +205,7 @@ Public Class Main
         AcelChart.DataSource = AcelDataSet
         AcelChart.DataBind()
     End Function
-    Private Function InitializeAcelChart()
+    Private Function InitializeCharts()
         '初期化
         AcelChart.Series.Clear()
         ProcChart.Series.Clear()
@@ -316,7 +290,6 @@ Public Class Main
             Return
         End If
     End Sub
-
     Private Sub SendComBtn_Click(sender As Object, e As EventArgs) Handles SendComBtn.Click
         If sendCommand(SendComTBox.Text) = False Then
             MsgBox("送信に失敗しました。")
@@ -324,7 +297,6 @@ Public Class Main
             SendComTBox.Text = ""
         End If
     End Sub
-
     Private Sub CancelComBtn_Click(sender As Object, e As EventArgs) Handles CancelComBtn.Click
         SendComTBox.Text = ""
     End Sub

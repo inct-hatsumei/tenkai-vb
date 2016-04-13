@@ -60,6 +60,7 @@ Public Class Main
         TrafTbox.Text = byteNum / 1024
         showAcelChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
         showProcChart(CpuUseTbox.Text, MemUseTbox.Text)
+        OutlierCheck()
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
         Close()
@@ -300,4 +301,47 @@ Public Class Main
     Private Sub CancelComBtn_Click(sender As Object, e As EventArgs) Handles CancelComBtn.Click
         SendComTBox.Text = ""
     End Sub
+    Private Function OutlierCheck()
+        Dim CpuUseOut, MemUseOut, AcelOut, TempOut, BtryOut, OprTimeOut As Single
+        CpuUseOut = Single.Parse(My.Settings.CpuOut)
+        MemUseOut = Single.Parse(My.Settings.MemOut)
+        AcelOut = Single.Parse(My.Settings.AcelOut)
+        TempOut = Single.Parse(My.Settings.TempOut)
+        BtryOut = Single.Parse(My.Settings.BtryOut)
+        OprTimeOut = Single.Parse(My.Settings.OprtimeOut)
+
+        CpuUseTbox.BackColor = My.Settings.Color
+        MemUseTbox.BackColor = My.Settings.Color
+        AcelXTbox.BackColor = My.Settings.Color
+        AcelYTbox.BackColor = My.Settings.Color
+        AcelZTbox.BackColor = My.Settings.Color
+        TempTbox.BackColor = My.Settings.Color
+        BtryTbox.BackColor = My.Settings.Color
+        OprTimeTbox.BackColor = My.Settings.Color
+
+        If CpuUseOut <= Single.Parse(CpuUseTbox.Text) Then
+            CpuUseTbox.BackColor = Color.Red
+        End If
+        If MemUseOut <= Single.Parse(MemUseTbox.Text) Then
+            MemUseTbox.BackColor = Color.Red
+        End If
+        If AcelOut <= Single.Parse(AcelXTbox.Text) Then
+            AcelXTbox.BackColor = Color.Red
+        End If
+        If AcelOut <= Single.Parse(AcelYTbox.Text) Then
+            AcelYTbox.BackColor = Color.Red
+        End If
+        If AcelOut <= Single.Parse(AcelZTbox.Text) Then
+            AcelZTbox.BackColor = Color.Red
+        End If
+        If TempOut <= Single.Parse(TempTbox.Text) Then
+            TempTbox.BackColor = Color.Red
+        End If
+        If BtryOut >= Single.Parse(BtryTbox.Text) Then
+            BtryTbox.BackColor = Color.Red
+        End If
+        'If OprTimeOut <= Single.Parse(OprTimeTbox.Text) Then
+        '    OprTimeTbox.BackColor = Color.Red
+        'End If
+    End Function
 End Class

@@ -374,13 +374,13 @@ Public Class Main
         If MemUseOut <= Single.Parse(MemUseTbox.Text) Then
             MemUseTbox.BackColor = Color.Red
         End If
-        If AcelOut <= Single.Parse(AcelXTbox.Text) Then
+        If AcelOut <= Math.Abs(Single.Parse(AcelXTbox.Text)) Then
             AcelXTbox.BackColor = Color.Red
         End If
-        If AcelOut <= Single.Parse(AcelYTbox.Text) Then
+        If AcelOut <= Math.Abs(Single.Parse(AcelYTbox.Text)) Then
             AcelYTbox.BackColor = Color.Red
         End If
-        If AcelOut <= Single.Parse(AcelZTbox.Text) Then
+        If AcelOut <= Math.Abs(Single.Parse(AcelZTbox.Text)) Then
             AcelZTbox.BackColor = Color.Red
         End If
         If TempOut <= Single.Parse(TempTbox.Text) Then

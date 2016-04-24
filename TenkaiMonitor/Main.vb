@@ -16,6 +16,10 @@ Public Class Main
     Dim ProcDataTable As New DataTable
     Dim ProcDataTableRow As DataRow
     Dim ProcDatasetDelete As Boolean = False
+    Dim TempDataSet As New DataSet
+    Dim TempDataTable As New DataTable
+    Dim TempDataTableRow As DataRow
+    Dim TempDatasetDelete As Boolean = False
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChangeColor(My.Settings.Color)
         InitializeCharts()
@@ -60,6 +64,7 @@ Public Class Main
         TrafTbox.Text = byteNum / 1024
         showAcelChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
         showProcChart(CpuUseTbox.Text, MemUseTbox.Text)
+        showTempChart(TempTbox.Text)
         OutlierCheck()
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
@@ -170,6 +175,22 @@ Public Class Main
             MsgBox("Disconnect Error")
         End If
     End Sub
+    Private Function showTempChart(temp As String)
+        'データの追加
+        TempDataTableRow = TempDataSet.Tables(0).NewRow
+        TempDataTableRow(0) = Date.Now.ToString("HH:mm:ss")
+        TempDataTableRow(1) = Single.Parse(temp)
+
+        TempDataSet.Tables(0).Rows.Add(TempDataTableRow)
+
+        If TempDataSet.Tables(0).Rows.Count = 21 And TempDatasetDelete = False Then
+            TempDataSet.Tables(0).Rows(0).Delete()
+        End If
+
+        'Chartコントロールにデータソースを設定
+        TempChart.DataSource = TempDataSet
+        TempChart.DataBind()
+    End Function
     Private Function showProcChart(cpu As String, mem As String)
         'データの追加
         ProcDataTableRow = ProcDataSet.Tables(0).NewRow
@@ -210,6 +231,7 @@ Public Class Main
         '初期化
         AcelChart.Series.Clear()
         ProcChart.Series.Clear()
+        TempChart.Series.Clear()
 
         '列の作成
         AcelDataTable.Columns.Add("数値", Type.GetType("System.String"))
@@ -222,6 +244,11 @@ Public Class Main
         ProcDataTable.Columns.Add("CPU使用率", Type.GetType("System.Single"))
         ProcDataTable.Columns.Add("メモリ使用率", Type.GetType("System.Single"))
         ProcDataSet.Tables.Add(ProcDataTable)
+
+        TempDataTable.Columns.Add("数値", Type.GetType("System.String"))
+        TempDataTable.Columns.Add("機体温度", Type.GetType("System.String"))
+        TempDataSet.Tables.Add(TempDataTable)
+
         'Chartコントロールにタイトルを設定
         AcelChart.Titles.Add("機体姿勢").ForeColor = Color.Green
         ProcChart.Titles.Add("プロセス情報").ForeColor = Color.Green
@@ -264,11 +291,33 @@ Public Class Main
             ProcChart.Series(columnName).YValueMembers = columnName
         Next
 
+        'グラフの種類,系列,軸の設定
+        For I As Integer = 1 To TempDataSet.Tables(0).Columns.Count - 1
+            '列名の取得
+            Dim columnName As String = TempDataSet.Tables(0).Columns(I).ColumnName
+
+            '系列の設定
+            TempChart.Series.Add(columnName)
+
+            'グラフの種類を折れ線グラフにする
+            TempChart.Series(columnName).ChartType = SeriesChartType.Line
+            'X軸
+            TempChart.Series(columnName).XValueMember = TempDataSet.Tables(0).Columns(0).ColumnName.ToString
+            TempChart.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+            TempChart.ChartAreas(0).AxisX.MinorGrid.Enabled = False
+
+            'Y軸
+            TempChart.Series(columnName).YValueMembers = columnName
+        Next
+
         'X軸タイトル
         AcelChart.ChartAreas(0).AxisX.Title = "時刻"
 
         'X軸タイトル
         ProcChart.ChartAreas(0).AxisX.Title = "時刻"
+
+        'X軸タイトル
+        TempChart.ChartAreas(0).AxisX.Title = "時刻"
     End Function
     Private Function sendCommand(com As String) As Boolean
         If com = "" Then

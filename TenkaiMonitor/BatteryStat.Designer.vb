@@ -31,32 +31,35 @@ Partial Class BatteryStat
         Me.BtryStatTbox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtryStatTbox.Font = New System.Drawing.Font("MS UI Gothic", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.BtryStatTbox.Location = New System.Drawing.Point(13, 13)
+        Me.BtryStatTbox.Location = New System.Drawing.Point(8, 9)
+        Me.BtryStatTbox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BtryStatTbox.Multiline = True
         Me.BtryStatTbox.Name = "BtryStatTbox"
         Me.BtryStatTbox.ReadOnly = True
-        Me.BtryStatTbox.Size = New System.Drawing.Size(510, 232)
+        Me.BtryStatTbox.Size = New System.Drawing.Size(308, 156)
         Me.BtryStatTbox.TabIndex = 0
         '
         'OkBtn
         '
         Me.OkBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OkBtn.Location = New System.Drawing.Point(363, 251)
+        Me.OkBtn.Location = New System.Drawing.Point(218, 167)
+        Me.OkBtn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.OkBtn.Name = "OkBtn"
-        Me.OkBtn.Size = New System.Drawing.Size(160, 38)
+        Me.OkBtn.Size = New System.Drawing.Size(96, 25)
         Me.OkBtn.TabIndex = 1
         Me.OkBtn.Text = "OK"
         Me.OkBtn.UseVisualStyleBackColor = True
         '
         'BatteryStat
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 301)
+        Me.ClientSize = New System.Drawing.Size(321, 201)
         Me.Controls.Add(Me.OkBtn)
         Me.Controls.Add(Me.BtryStatTbox)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "BatteryStat"
-        Me.Text = "BatteryStat"
+        Me.Text = "バッテリー情報"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

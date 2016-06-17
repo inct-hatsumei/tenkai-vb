@@ -33,18 +33,20 @@ Partial Class BluetoothConfig
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(7, 6)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(89, 18)
+        Me.Label1.Size = New System.Drawing.Size(58, 12)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "COMポート"
         '
         'OkBtn
         '
         Me.OkBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OkBtn.Location = New System.Drawing.Point(102, 73)
+        Me.OkBtn.Location = New System.Drawing.Point(61, 49)
+        Me.OkBtn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.OkBtn.Name = "OkBtn"
-        Me.OkBtn.Size = New System.Drawing.Size(100, 37)
+        Me.OkBtn.Size = New System.Drawing.Size(60, 25)
         Me.OkBtn.TabIndex = 3
         Me.OkBtn.Text = "OK"
         Me.OkBtn.UseVisualStyleBackColor = True
@@ -52,9 +54,10 @@ Partial Class BluetoothConfig
         'CancelBtn
         '
         Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelBtn.Location = New System.Drawing.Point(208, 73)
+        Me.CancelBtn.Location = New System.Drawing.Point(125, 49)
+        Me.CancelBtn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CancelBtn.Name = "CancelBtn"
-        Me.CancelBtn.Size = New System.Drawing.Size(100, 37)
+        Me.CancelBtn.Size = New System.Drawing.Size(60, 25)
         Me.CancelBtn.TabIndex = 3
         Me.CancelBtn.Text = "Cancel"
         Me.CancelBtn.UseVisualStyleBackColor = True
@@ -62,22 +65,24 @@ Partial Class BluetoothConfig
         'BluetoothSppPorts
         '
         Me.BluetoothSppPorts.FormattingEnabled = True
-        Me.BluetoothSppPorts.Location = New System.Drawing.Point(107, 6)
+        Me.BluetoothSppPorts.Location = New System.Drawing.Point(64, 4)
+        Me.BluetoothSppPorts.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BluetoothSppPorts.Name = "BluetoothSppPorts"
-        Me.BluetoothSppPorts.Size = New System.Drawing.Size(201, 26)
+        Me.BluetoothSppPorts.Size = New System.Drawing.Size(122, 20)
         Me.BluetoothSppPorts.TabIndex = 4
         '
         'BluetoothConfig
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(320, 122)
+        Me.ClientSize = New System.Drawing.Size(192, 81)
         Me.Controls.Add(Me.BluetoothSppPorts)
         Me.Controls.Add(Me.CancelBtn)
         Me.Controls.Add(Me.OkBtn)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "BluetoothConfig"
-        Me.Text = "BluetoothConfig"
+        Me.Text = "Bluetooth通信設定"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

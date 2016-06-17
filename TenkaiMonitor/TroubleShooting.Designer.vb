@@ -22,8 +22,16 @@ Partial Class TroubleShooting
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout()
+        '
+        'TroubleShooting
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Text = "TroubleShooting"
+        Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Name = "TroubleShooting"
+        Me.Text = "トラブルシューティング"
+        Me.ResumeLayout(False)
+
     End Sub
 End Class

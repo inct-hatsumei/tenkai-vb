@@ -22,8 +22,16 @@ Partial Class Manual
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout()
+        '
+        'Manual
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Text = "Manual"
+        Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Name = "Manual"
+        Me.Text = "運用手順書"
+        Me.ResumeLayout(False)
+
     End Sub
 End Class

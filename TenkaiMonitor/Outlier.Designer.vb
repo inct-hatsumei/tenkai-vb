@@ -215,7 +215,7 @@ Partial Class Outlier
         'OkBtn
         '
         Me.OkBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OkBtn.Location = New System.Drawing.Point(340, 190)
+        Me.OkBtn.Location = New System.Drawing.Point(167, 190)
         Me.OkBtn.Name = "OkBtn"
         Me.OkBtn.Size = New System.Drawing.Size(167, 42)
         Me.OkBtn.TabIndex = 8
@@ -225,7 +225,7 @@ Partial Class Outlier
         'CancelBtn
         '
         Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelBtn.Location = New System.Drawing.Point(167, 190)
+        Me.CancelBtn.Location = New System.Drawing.Point(340, 190)
         Me.CancelBtn.Name = "CancelBtn"
         Me.CancelBtn.Size = New System.Drawing.Size(167, 42)
         Me.CancelBtn.TabIndex = 8

@@ -65,6 +65,7 @@ Public Class Main
         showAcelChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
         showProcChart(CpuUseTbox.Text, MemUseTbox.Text)
         showTempChart(TempTbox.Text)
+        showBatStatChart(BtryTbox.Text)
         OutlierCheck()
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
@@ -111,14 +112,14 @@ Public Class Main
         SendComTBox.BackColor = bgcolor
         SendComBtn.BackColor = bgcolor
         CancelComBtn.BackColor = bgcolor
+        BatLevGraph.BackColor = bgcolor
         GroupBox1.BackColor = bgcolor
         GroupBox2.BackColor = bgcolor
         GroupBox3.BackColor = bgcolor
         GroupBox4.BackColor = bgcolor
         GroupBox5.BackColor = bgcolor
         GroupBox6.BackColor = bgcolor
-
-        AcelChart.ChartAreas(0).BackColor = bgcolor
+        GroupBox7.BackColor = bgcolor
     End Function
     Private Function BluetoothConnect(connect As Boolean) As Boolean
         PortNo = My.Settings.BluetoothPort
@@ -226,6 +227,11 @@ Public Class Main
         'Chartコントロールにデータソースを設定
         AcelChart.DataSource = AcelDataSet
         AcelChart.DataBind()
+    End Function
+    ' データの設定
+    Private Function showBatStatChart(BatLevel As String)
+        BatLevGraph.Value = Integer.Parse(BatLevel)
+        BatLevLabel.Text = BatLevel & "%"
     End Function
     Private Function InitializeCharts()
         '初期化

@@ -2,9 +2,8 @@
 Imports System.Text
 
 Public Class LogSaveConfig
+    Dim path As String
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles SettingBtn.Click
-        Dim path As String
-
         FolderBrowserDialog1.Description = "ログファイルを保存するディレクトリを選択してください。"
         FolderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyComputer
         FolderBrowserDialog1.SelectedPath = "C: "
@@ -24,7 +23,9 @@ Public Class LogSaveConfig
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OkBtn.Click
-        My.Settings.LogSaveFolder = NewLogFolderTbox.Text
+        MsgBox(path)
+        My.Settings.LogSaveFolder = path
+        MsgBox(My.Settings.LogSaveFolder)
         Close()
     End Sub
 End Class

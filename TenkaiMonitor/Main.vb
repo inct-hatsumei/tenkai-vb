@@ -7,6 +7,7 @@ Public Class Main
     Dim PortNo As String
     Dim DataNo As Integer = 0
     Dim byteNum As Integer = 0
+    Dim LogSaved As Boolean = False
     'グラフ関連
     Dim AcelDataSet As New DataSet
     Dim AcelDataTable As New DataTable
@@ -339,7 +340,10 @@ Public Class Main
     End Function
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Media.SystemSounds.Exclamation.Play()
-        If MessageBox.Show("終了しますか?", "確認ダイアログ", MessageBoxButtons.YesNo,
+        If LogSaved = False Then
+            MsgBox("ログが保存されていません")
+            e.Cancel = True
+        ElseIf MessageBox.Show("終了しますか?", "確認ダイアログ", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) = DialogResult.No Then
             e.Cancel = True
         Else
@@ -399,4 +403,20 @@ Public Class Main
         '    OprTimeTbox.BackColor = Color.Red
         'End If
     End Function
+
+    Private Sub LogSaveBtn_Click(sender As Object, e As EventArgs) Handles LogSaveBtn.Click
+        MsgBox("")
+        Dim LogSavePath As String = My.Settings.LogSaveFolder
+        Dim LogTitle As String = "Time,CPU,MEM,BatTemp,BatLev,GPSLat,GPSLon,GPSAlt,AcelX,AcelY,AcelZ" & vbCrLf
+        Dim LogData As String = RcpDataTbox.Text & vbCrLf
+
+        'Shift JISで書き込む
+        '書き込むファイルが既に存在している場合は、上書きする
+        Dim sw As New System.IO.StreamWriter(LogSavePath & "cansat_log.csv", False, SjisEnc)
+        'TextBox1.Textの内容を書き込む
+        sw.Write(LogTitle & LogData)
+        '閉じる
+        sw.Close()
+        LogSaved = True
+    End Sub
 End Class

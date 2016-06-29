@@ -19,13 +19,12 @@ Public Class LogSaveConfig
     End Sub
 
     Private Sub LogSaveConfig_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LogFolderTbox.Text = My.Settings.LogSaveFolder
+        LogFolderTbox.Text = My.Settings.LogSavePath
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OkBtn.Click
-        MsgBox(path)
-        My.Settings.LogSaveFolder = path
-        MsgBox(My.Settings.LogSaveFolder)
+        My.Settings.LogSavePath = path
+        MsgBox(My.Settings.LogSavePath)
         Close()
     End Sub
 End Class

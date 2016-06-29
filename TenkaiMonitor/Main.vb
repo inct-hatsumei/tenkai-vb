@@ -405,16 +405,17 @@ Public Class Main
     End Function
 
     Private Sub LogSaveBtn_Click(sender As Object, e As EventArgs) Handles LogSaveBtn.Click
-        MsgBox("")
-        Dim LogSavePath As String = My.Settings.LogSaveFolder
+        MsgBox(My.Settings.LogSavePath)
+        Dim LogSavePath As String = My.Settings.LogSavePath
         Dim LogTitle As String = "Time,CPU,MEM,BatTemp,BatLev,GPSLat,GPSLon,GPSAlt,AcelX,AcelY,AcelZ" & vbCrLf
-        Dim LogData As String = RcpDataTbox.Text & vbCrLf
+        Dim LogData As String = RcpDataTbox.Text
 
         'Shift JISで書き込む
         '書き込むファイルが既に存在している場合は、上書きする
-        Dim sw As New System.IO.StreamWriter(LogSavePath & "cansat_log.csv", False, SjisEnc)
+        Dim sw As New System.IO.StreamWriter(LogSavePath & "\cansat_log.csv", False, SjisEnc)
         'TextBox1.Textの内容を書き込む
         sw.Write(LogTitle & LogData)
+        Console.Write(LogTitle & LogData)
         '閉じる
         sw.Close()
         LogSaved = True

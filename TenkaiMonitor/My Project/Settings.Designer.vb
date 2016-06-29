@@ -152,12 +152,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property LogSaveFolder() As String
+        Public Property LogSavePath() As String
             Get
-                Return CType(Me("LogSaveFolder"),String)
+                Return CType(Me("LogSavePath"),String)
             End Get
             Set
-                Me("LogSaveFolder") = value
+                Me("LogSavePath") = value
             End Set
         End Property
     End Class

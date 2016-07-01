@@ -63,10 +63,23 @@ Public Class Main
             AcelXTbox.Text & "," & AcelYTbox.Text & "," &
             AcelZTbox.Text & "," & vbCrLf & RcpDataTbox.Text
         TrafTbox.Text = byteNum / 1024
-        showAcelChart(AcelXTbox.Text, AcelYTbox.Text, AcelZTbox.Text)
-        showProcChart(CpuUseTbox.Text, MemUseTbox.Text)
-        showTempChart(TempTbox.Text)
-        showBatStatChart(BtryTbox.Text)
+        Dim AcelX, AcelY, AcelZ, CpuUse, MemUse, Temp, BtryLev As Single
+        Try
+            AcelX = Single.Parse(AcelXTbox.Text)
+            AcelY = Single.Parse(AcelYTbox.Text)
+            AcelZ = Single.Parse(AcelZTbox.Text)
+            CpuUse = Single.Parse(CpuUseTbox.Text)
+            MemUse = Single.Parse(MemUseTbox.Text)
+            Temp = Single.Parse(TempTbox.Text)
+            BtryLev = Single.Parse(BtryTbox.Text)
+        Catch ex As Exception
+            Console.Write(ex)
+        End Try
+
+        showAcelChart(AcelX, AcelY, AcelZ)
+        showProcChart(CpuUse, MemUse)
+        showTempChart(Temp)
+        showBatStatChart(BtryLev)
         OutlierCheck()
     End Sub
     Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
@@ -177,11 +190,11 @@ Public Class Main
             MsgBox("Disconnect Error")
         End If
     End Sub
-    Private Function showTempChart(temp As String)
+    Private Function showTempChart(temp As Single)
         'データの追加
         TempDataTableRow = TempDataSet.Tables(0).NewRow
         TempDataTableRow(0) = Date.Now.ToString("HH:mm:ss")
-        TempDataTableRow(1) = Single.Parse(temp)
+        TempDataTableRow(1) = temp
 
         TempDataSet.Tables(0).Rows.Add(TempDataTableRow)
 
@@ -193,12 +206,12 @@ Public Class Main
         TempChart.DataSource = TempDataSet
         TempChart.DataBind()
     End Function
-    Private Function showProcChart(cpu As String, mem As String)
+    Private Function showProcChart(cpu As Single, mem As Single)
         'データの追加
         ProcDataTableRow = ProcDataSet.Tables(0).NewRow
         ProcDataTableRow(0) = Date.Now.ToString("HH:mm:ss")
-        ProcDataTableRow(1) = Single.Parse(cpu)
-        ProcDataTableRow(2) = Single.Parse(mem)
+        ProcDataTableRow(1) = cpu
+        ProcDataTableRow(2) = mem
 
         ProcDataSet.Tables(0).Rows.Add(ProcDataTableRow)
 
@@ -210,14 +223,14 @@ Public Class Main
         ProcChart.DataSource = ProcDataSet
         ProcChart.DataBind()
     End Function
-    Private Function showAcelChart(AcelX As String, AcelY As String, AcelZ As String)
+    Private Function showAcelChart(AcelX As Single, AcelY As Single, AcelZ As Single)
 
         'データの追加
         AcelDataTableRow = AcelDataSet.Tables(0).NewRow
         AcelDataTableRow(0) = Date.Now.ToString("HH:mm:ss")
-        AcelDataTableRow(1) = Single.Parse(AcelX)
-        AcelDataTableRow(2) = Single.Parse(AcelY)
-        AcelDataTableRow(3) = Single.Parse(AcelZ)
+        AcelDataTableRow(1) = AcelX
+        AcelDataTableRow(2) = AcelY
+        AcelDataTableRow(3) = AcelZ
 
         AcelDataSet.Tables(0).Rows.Add(AcelDataTableRow)
 
@@ -230,8 +243,8 @@ Public Class Main
         AcelChart.DataBind()
     End Function
     ' データの設定
-    Private Function showBatStatChart(BatLevel As String)
-        BatLevGraph.Value = Integer.Parse(BatLevel)
+    Private Function showBatStatChart(BatLevel As Single)
+        BatLevGraph.Value = BatLevel
         BatLevLabel.Text = BatLevel & "%"
     End Function
     Private Function InitializeCharts()
@@ -405,7 +418,6 @@ Public Class Main
     End Function
 
     Private Sub LogSaveBtn_Click(sender As Object, e As EventArgs) Handles LogSaveBtn.Click
-        MsgBox(My.Settings.LogSavePath)
         Dim LogSavePath As String = My.Settings.LogSavePath
         Dim LogTitle As String = "Time,CPU,MEM,BatTemp,BatLev,GPSLat,GPSLon,GPSAlt,AcelX,AcelY,AcelZ" & vbCrLf
         Dim LogData As String = RcpDataTbox.Text
@@ -418,6 +430,7 @@ Public Class Main
         Console.Write(LogTitle & LogData)
         '閉じる
         sw.Close()
+        MsgBox(My.Settings.LogSavePath & "\cansat_log.csvに保存しました")
         LogSaved = True
     End Sub
 End Class

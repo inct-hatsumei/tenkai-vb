@@ -9,6 +9,7 @@ Public Class Main
 	Dim byteNum As Integer = 0
 	Dim LogSaved As Boolean = False
 	Dim sec As Integer = 5
+	Dim comSendMsg As String = ""
 	'グラフ関連
 	Dim AcelDataSet As New DataSet
 	Dim AcelDataTable As New DataTable
@@ -62,7 +63,7 @@ Public Class Main
 			BtryTbox.Text & "," & LatTbox.Text & "," &
 			LonTbox.Text & "," & AltTbox.Text & "," &
 			AcelXTbox.Text & "," & AcelYTbox.Text & "," &
-			AcelZTbox.Text & "," & vbCrLf & RcpDataTbox.Text
+			AcelZTbox.Text & "," & comSendMsg & "," & vbCrLf & RcpDataTbox.Text
 		TrafTbox.Text = byteNum / 1024
 		Dim AcelX, AcelY, AcelZ, CpuUse, MemUse, Temp, BtryLev As Single
 		Try
@@ -81,7 +82,8 @@ Public Class Main
 		showProcChart(CpuUse, MemUse)
 		showTempChart(Temp)
 		showBatStatChart(BtryLev)
-		OutlierCheck()
+		OutlierCheck(CpuUse, MemUse, AcelX, AcelY, AcelZ, Temp, BtryLev)
+		comSendMsg = ""
 	End Sub
 	Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
 		Close()
@@ -122,11 +124,13 @@ Public Class Main
 		TrafTbox.BackColor = bgcolor
 		RcpDataTbox.BackColor = bgcolor
 		JstTbox.BackColor = bgcolor
-		LogSaveBtn.BackColor = bgcolor
 		ExitBtn.BackColor = bgcolor
-		SendComTBox.BackColor = bgcolor
-		SendComBtn.BackColor = bgcolor
-		CancelComBtn.BackColor = bgcolor
+		SendStartComBtn.BackColor = bgcolor
+		TestSendComBtn.BackColor = bgcolor
+		MovieRecStartComBtn.BackColor = bgcolor
+		AlarmStartComBtn.BackColor = bgcolor
+		AllStopComBtn.BackColor = bgcolor
+		ExitComBtn.BackColor = bgcolor
 		BatLevGraph.BackColor = bgcolor
 		GroupBox1.BackColor = bgcolor
 		GroupBox2.BackColor = bgcolor
@@ -178,17 +182,18 @@ Public Class Main
 	End Sub
 	Private Sub MissionStart_Click(sender As Object, e As EventArgs) Handles MissionStart.Click
 		If BluetoothConnect(True) = True Then
-			MsgBox("Connect Success")
+			MsgBox("接続成功")
 		Else
 			Media.SystemSounds.Exclamation.Play()
-			MsgBox("Connect Error")
+			MsgBox("接続エラー")
 		End If
 	End Sub
 	Private Sub MissionFinish_Click(sender As Object, e As EventArgs) Handles MissionFinish.Click
 		If BluetoothConnect(False) = True Then
-			MsgBox("Disconnect Success")
+			MsgBox("切断成功")
+			saveLog()
 		Else
-			MsgBox("Disconnect Error")
+			MsgBox("切断エラー")
 		End If
 	End Sub
 	Private Function showTempChart(temp As Single)
@@ -364,17 +369,7 @@ Public Class Main
 			Return
 		End If
 	End Sub
-	Private Sub SendComBtn_Click(sender As Object, e As EventArgs) Handles SendComBtn.Click
-		If sendCommand(SendComTBox.Text) = False Then
-			MsgBox("送信に失敗しました。")
-		Else
-			SendComTBox.Text = ""
-		End If
-	End Sub
-	Private Sub CancelComBtn_Click(sender As Object, e As EventArgs) Handles CancelComBtn.Click
-		SendComTBox.Text = ""
-	End Sub
-	Private Function OutlierCheck()
+	Private Function OutlierCheck(CpuUse As Single, MemUse As Single, AcelX As Single, AcelY As Single, AcelZ As Single, Temp As Single, Btry As Single)
 		Dim CpuUseOut, MemUseOut, AcelOut, TempOut, BtryOut, OprTimeOut As Single
 		CpuUseOut = Single.Parse(My.Settings.CpuOut)
 		MemUseOut = Single.Parse(My.Settings.MemOut)
@@ -392,48 +387,46 @@ Public Class Main
 		BtryTbox.BackColor = My.Settings.Color
 		OprTimeTbox.BackColor = My.Settings.Color
 
-		If CpuUseOut <= Single.Parse(CpuUseTbox.Text) Then
+		If CpuUseOut <= CpuUse Then
 			CpuUseTbox.BackColor = Color.Red
 		End If
-		If MemUseOut <= Single.Parse(MemUseTbox.Text) Then
+		If MemUseOut <= MemUse Then
 			MemUseTbox.BackColor = Color.Red
 		End If
-		If AcelOut <= Math.Abs(Single.Parse(AcelXTbox.Text)) Then
+		If AcelOut <= Math.Abs(AcelX) Then
 			AcelXTbox.BackColor = Color.Red
 		End If
-		If AcelOut <= Math.Abs(Single.Parse(AcelYTbox.Text)) Then
+		If AcelOut <= Math.Abs(AcelY) Then
 			AcelYTbox.BackColor = Color.Red
 		End If
-		If AcelOut <= Math.Abs(Single.Parse(AcelZTbox.Text)) Then
+		If AcelOut <= Math.Abs(AcelZ) Then
 			AcelZTbox.BackColor = Color.Red
 		End If
-		If TempOut <= Single.Parse(TempTbox.Text) Then
+		If TempOut <= Temp Then
 			TempTbox.BackColor = Color.Red
 		End If
-		If BtryOut >= Single.Parse(BtryTbox.Text) Then
+		If BtryOut >= Btry Then
 			BtryTbox.BackColor = Color.Red
 		End If
 		'If OprTimeOut <= Single.Parse(OprTimeTbox.Text) Then
 		'    OprTimeTbox.BackColor = Color.Red
 		'End If
 	End Function
-
-	Private Sub LogSaveBtn_Click(sender As Object, e As EventArgs) Handles LogSaveBtn.Click
+	Private Function saveLog()
 		Dim LogSavePath As String = My.Settings.LogSavePath
 		Dim LogTitle As String = "Time,CPU,MEM,BatTemp,BatLev,GPSLat,GPSLon,GPSAlt,AcelX,AcelY,AcelZ" & vbCrLf
 		Dim LogData As String = RcpDataTbox.Text
 
 		'Shift JISで書き込む
 		'書き込むファイルが既に存在している場合は、上書きする
-		Dim sw As New System.IO.StreamWriter(LogSavePath & "\cansat_log.csv", False, SjisEnc)
-		'TextBox1.Textの内容を書き込む
+		Dim sw As New StreamWriter(LogSavePath & "\cansat_log.csv", False, SjisEnc)
 		sw.Write(LogTitle & LogData)
 		Console.Write(LogTitle & LogData)
 		'閉じる
 		sw.Close()
 		MsgBox(My.Settings.LogSavePath & "\cansat_log.csvに保存しました")
 		LogSaved = True
-	End Sub
+	End Function
 	Private Sub LanchCounter_Tick(sender As Object, e As EventArgs) Handles LanchCounter.Tick
 		If sec >= 0 Then
 			LanchCount.Text = "打ち上げまであと" & sec & "秒"
@@ -446,5 +439,53 @@ Public Class Main
 
 	Private Sub LanchCounterStart_Click(sender As Object, e As EventArgs) Handles LanchCounterStart.Click
 		LanchCounter.Enabled = True
+	End Sub
+
+	Private Sub TestSendComBtn_Click(sender As Object, e As EventArgs) Handles TestSendComBtn.Click
+		If sendCommand("1") = False Then
+			comSendMsg = "エラーコード1 テストコマンドの送信に失敗"
+		Else
+			comSendMsg = "テストコマンド送信成功"
+		End If
+	End Sub
+
+	Private Sub SendStartComBtn_Click(sender As Object, e As EventArgs) Handles SendStartComBtn.Click
+		If sendCommand("2") = False Then
+			comSendMsg = "エラーコード2 定期送信開始コマンドの送信に失敗"
+		Else
+			comSendMsg = "定期送信開始コマンド送信成功"
+		End If
+	End Sub
+
+	Private Sub MovieRecStartComBtn_Click(sender As Object, e As EventArgs) Handles MovieRecStartComBtn.Click
+		If sendCommand("4") = False Then
+			comSendMsg = "エラーコード4 撮影開始コマンドの送信に失敗"
+		Else
+			comSendMsg = "撮影開始コマンド送信成功"
+		End If
+	End Sub
+
+	Private Sub AlarmStartComBtn_Click(sender As Object, e As EventArgs) Handles AlarmStartComBtn.Click
+		If sendCommand("6") = False Then
+			comSendMsg = "エラーコード6 アラーム開始コマンドの送信に失敗"
+		Else
+			comSendMsg = "アラーム開始コマンド送信成功"
+		End If
+	End Sub
+
+	Private Sub AllStopComBtn_Click(sender As Object, e As EventArgs) Handles AllStopComBtn.Click
+		If sendCommand("3") = False Or sendCommand("5") = False Or sendCommand("7") = False Then
+			comSendMsg = "エラーコード7 機能停止コマンドの送信に失敗"
+		Else
+			comSendMsg = "機能停止コマンド送信成功"
+		End If
+	End Sub
+
+	Private Sub ExitComBtn_Click(sender As Object, e As EventArgs) Handles ExitComBtn.Click
+		If sendCommand("0") = False Then
+			comSendMsg = "エラーコード0 強制終了コマンドの送信に失敗"
+		Else
+			comSendMsg = "強制終了コマンド送信成功"
+		End If
 	End Sub
 End Class

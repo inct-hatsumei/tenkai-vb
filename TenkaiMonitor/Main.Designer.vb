@@ -23,48 +23,47 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
-		Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-		Dim Legend7 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-		Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-		Dim DataPoint61 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
-		Dim DataPoint62 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
-		Dim DataPoint63 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
-		Dim DataPoint64 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
-		Dim DataPoint65 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
-		Dim DataPoint66 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
-		Dim DataPoint67 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
-		Dim DataPoint68 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
-		Dim DataPoint69 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
-		Dim DataPoint70 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
-		Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-		Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-		Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-		Dim DataPoint71 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
-		Dim DataPoint72 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
-		Dim DataPoint73 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
-		Dim DataPoint74 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
-		Dim DataPoint75 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
-		Dim DataPoint76 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
-		Dim DataPoint77 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
-		Dim DataPoint78 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
-		Dim DataPoint79 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
-		Dim DataPoint80 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
-		Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-		Dim Legend9 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-		Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-		Dim DataPoint81 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
-		Dim DataPoint82 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
-		Dim DataPoint83 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
-		Dim DataPoint84 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
-		Dim DataPoint85 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
-		Dim DataPoint86 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
-		Dim DataPoint87 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
-		Dim DataPoint88 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
-		Dim DataPoint89 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
-		Dim DataPoint90 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
+		Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+		Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+		Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+		Dim DataPoint1 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
+		Dim DataPoint2 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
+		Dim DataPoint3 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
+		Dim DataPoint4 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
+		Dim DataPoint5 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
+		Dim DataPoint6 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
+		Dim DataPoint7 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
+		Dim DataPoint8 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
+		Dim DataPoint9 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
+		Dim DataPoint10 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
+		Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+		Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+		Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+		Dim DataPoint11 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
+		Dim DataPoint12 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
+		Dim DataPoint13 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
+		Dim DataPoint14 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
+		Dim DataPoint15 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
+		Dim DataPoint16 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
+		Dim DataPoint17 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
+		Dim DataPoint18 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
+		Dim DataPoint19 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
+		Dim DataPoint20 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
+		Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+		Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+		Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+		Dim DataPoint21 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 12.0R)
+		Dim DataPoint22 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(1.0R, 13.0R)
+		Dim DataPoint23 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(2.0R, 15.0R)
+		Dim DataPoint24 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(3.0R, 12.0R)
+		Dim DataPoint25 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(4.0R, 17.0R)
+		Dim DataPoint26 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(5.0R, 20.0R)
+		Dim DataPoint27 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(6.0R, 19.0R)
+		Dim DataPoint28 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(7.0R, 18.0R)
+		Dim DataPoint29 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(8.0R, 21.0R)
+		Dim DataPoint30 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(9.0R, 17.0R)
 		Me.BluetoothSpp = New System.IO.Ports.SerialPort(Me.components)
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-		Me.ExitBtn = New System.Windows.Forms.Button()
 		Me.RcpDataTbox = New System.Windows.Forms.TextBox()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.OprTimeTbox = New System.Windows.Forms.TextBox()
@@ -160,26 +159,14 @@ Partial Class Main
 		Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.GroupBox3.BackColor = System.Drawing.SystemColors.Control
-		Me.GroupBox3.Controls.Add(Me.ExitBtn)
 		Me.GroupBox3.Controls.Add(Me.RcpDataTbox)
 		Me.GroupBox3.ForeColor = System.Drawing.Color.Green
-		Me.GroupBox3.Location = New System.Drawing.Point(12, 823)
+		Me.GroupBox3.Location = New System.Drawing.Point(337, 823)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(1874, 186)
+		Me.GroupBox3.Size = New System.Drawing.Size(1549, 186)
 		Me.GroupBox3.TabIndex = 0
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "受信データ"
-		'
-		'ExitBtn
-		'
-		Me.ExitBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.ExitBtn.BackColor = System.Drawing.SystemColors.Control
-		Me.ExitBtn.Location = New System.Drawing.Point(1725, 145)
-		Me.ExitBtn.Name = "ExitBtn"
-		Me.ExitBtn.Size = New System.Drawing.Size(143, 34)
-		Me.ExitBtn.TabIndex = 2
-		Me.ExitBtn.Text = "終了"
-		Me.ExitBtn.UseVisualStyleBackColor = False
 		'
 		'RcpDataTbox
 		'
@@ -188,12 +175,12 @@ Partial Class Main
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.RcpDataTbox.BackColor = System.Drawing.SystemColors.Control
 		Me.RcpDataTbox.ForeColor = System.Drawing.Color.Green
-		Me.RcpDataTbox.Location = New System.Drawing.Point(7, 25)
+		Me.RcpDataTbox.Location = New System.Drawing.Point(6, 24)
 		Me.RcpDataTbox.Multiline = True
 		Me.RcpDataTbox.Name = "RcpDataTbox"
 		Me.RcpDataTbox.ReadOnly = True
 		Me.RcpDataTbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-		Me.RcpDataTbox.Size = New System.Drawing.Size(1712, 154)
+		Me.RcpDataTbox.Size = New System.Drawing.Size(1537, 154)
 		Me.RcpDataTbox.TabIndex = 0
 		'
 		'GroupBox1
@@ -625,76 +612,76 @@ Partial Class Main
 		Me.TempChart.BackColor = System.Drawing.Color.Transparent
 		Me.TempChart.BackSecondaryColor = System.Drawing.Color.Transparent
 		Me.TempChart.BorderlineColor = System.Drawing.Color.Transparent
-		ChartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Green
-		ChartArea7.AxisX.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisX.MajorGrid.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisX.ScrollBar.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisX.TitleForeColor = System.Drawing.Color.Green
-		ChartArea7.AxisY.InterlacedColor = System.Drawing.Color.Green
-		ChartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Green
-		ChartArea7.AxisY.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisY.MajorGrid.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
-		ChartArea7.AxisY.TitleForeColor = System.Drawing.Color.Green
-		ChartArea7.BackColor = System.Drawing.Color.Transparent
-		ChartArea7.BackSecondaryColor = System.Drawing.Color.Transparent
-		ChartArea7.BorderColor = System.Drawing.Color.Green
-		ChartArea7.CursorX.LineColor = System.Drawing.Color.Green
-		ChartArea7.CursorY.LineColor = System.Drawing.Color.Green
-		ChartArea7.Name = "ChartArea1"
-		Me.TempChart.ChartAreas.Add(ChartArea7)
-		Legend7.BackColor = System.Drawing.Color.Transparent
-		Legend7.BorderColor = System.Drawing.Color.Green
-		Legend7.ForeColor = System.Drawing.Color.Green
-		Legend7.ItemColumnSeparatorColor = System.Drawing.Color.Green
-		Legend7.Name = "Legend1"
-		Legend7.TitleBackColor = System.Drawing.Color.Transparent
-		Legend7.TitleForeColor = System.Drawing.Color.Green
-		Legend7.TitleSeparatorColor = System.Drawing.Color.Green
-		Me.TempChart.Legends.Add(Legend7)
+		ChartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Green
+		ChartArea1.AxisX.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisX.TitleForeColor = System.Drawing.Color.Green
+		ChartArea1.AxisY.InterlacedColor = System.Drawing.Color.Green
+		ChartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Green
+		ChartArea1.AxisY.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
+		ChartArea1.AxisY.TitleForeColor = System.Drawing.Color.Green
+		ChartArea1.BackColor = System.Drawing.Color.Transparent
+		ChartArea1.BackSecondaryColor = System.Drawing.Color.Transparent
+		ChartArea1.BorderColor = System.Drawing.Color.Green
+		ChartArea1.CursorX.LineColor = System.Drawing.Color.Green
+		ChartArea1.CursorY.LineColor = System.Drawing.Color.Green
+		ChartArea1.Name = "ChartArea1"
+		Me.TempChart.ChartAreas.Add(ChartArea1)
+		Legend1.BackColor = System.Drawing.Color.Transparent
+		Legend1.BorderColor = System.Drawing.Color.Green
+		Legend1.ForeColor = System.Drawing.Color.Green
+		Legend1.ItemColumnSeparatorColor = System.Drawing.Color.Green
+		Legend1.Name = "Legend1"
+		Legend1.TitleBackColor = System.Drawing.Color.Transparent
+		Legend1.TitleForeColor = System.Drawing.Color.Green
+		Legend1.TitleSeparatorColor = System.Drawing.Color.Green
+		Me.TempChart.Legends.Add(Legend1)
 		Me.TempChart.Location = New System.Drawing.Point(774, 511)
 		Me.TempChart.Name = "TempChart"
 		Me.TempChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-		Series7.BorderColor = System.Drawing.Color.Green
-		Series7.ChartArea = "ChartArea1"
-		Series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-		Series7.Color = System.Drawing.Color.Green
-		Series7.EmptyPointStyle.BorderColor = System.Drawing.Color.Green
-		Series7.EmptyPointStyle.Color = System.Drawing.Color.Green
-		Series7.EmptyPointStyle.LabelBorderColor = System.Drawing.Color.Green
-		Series7.EmptyPointStyle.LabelForeColor = System.Drawing.Color.Green
-		Series7.EmptyPointStyle.MarkerColor = System.Drawing.Color.Green
-		Series7.LabelBorderColor = System.Drawing.Color.Green
-		Series7.LabelForeColor = System.Drawing.Color.Green
-		Series7.Legend = "Legend1"
-		Series7.MarkerBorderColor = System.Drawing.Color.Green
-		Series7.MarkerColor = System.Drawing.Color.Green
-		Series7.Name = "グラフ1"
-		DataPoint61.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint62.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint63.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint64.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint65.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint66.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint67.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint68.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint69.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint70.LabelBorderColor = System.Drawing.Color.Green
-		Series7.Points.Add(DataPoint61)
-		Series7.Points.Add(DataPoint62)
-		Series7.Points.Add(DataPoint63)
-		Series7.Points.Add(DataPoint64)
-		Series7.Points.Add(DataPoint65)
-		Series7.Points.Add(DataPoint66)
-		Series7.Points.Add(DataPoint67)
-		Series7.Points.Add(DataPoint68)
-		Series7.Points.Add(DataPoint69)
-		Series7.Points.Add(DataPoint70)
-		Series7.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
-		Me.TempChart.Series.Add(Series7)
+		Series1.BorderColor = System.Drawing.Color.Green
+		Series1.ChartArea = "ChartArea1"
+		Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+		Series1.Color = System.Drawing.Color.Green
+		Series1.EmptyPointStyle.BorderColor = System.Drawing.Color.Green
+		Series1.EmptyPointStyle.Color = System.Drawing.Color.Green
+		Series1.EmptyPointStyle.LabelBorderColor = System.Drawing.Color.Green
+		Series1.EmptyPointStyle.LabelForeColor = System.Drawing.Color.Green
+		Series1.EmptyPointStyle.MarkerColor = System.Drawing.Color.Green
+		Series1.LabelBorderColor = System.Drawing.Color.Green
+		Series1.LabelForeColor = System.Drawing.Color.Green
+		Series1.Legend = "Legend1"
+		Series1.MarkerBorderColor = System.Drawing.Color.Green
+		Series1.MarkerColor = System.Drawing.Color.Green
+		Series1.Name = "グラフ1"
+		DataPoint1.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint2.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint3.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint4.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint5.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint6.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint7.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint8.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint9.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint10.LabelBorderColor = System.Drawing.Color.Green
+		Series1.Points.Add(DataPoint1)
+		Series1.Points.Add(DataPoint2)
+		Series1.Points.Add(DataPoint3)
+		Series1.Points.Add(DataPoint4)
+		Series1.Points.Add(DataPoint5)
+		Series1.Points.Add(DataPoint6)
+		Series1.Points.Add(DataPoint7)
+		Series1.Points.Add(DataPoint8)
+		Series1.Points.Add(DataPoint9)
+		Series1.Points.Add(DataPoint10)
+		Series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
+		Me.TempChart.Series.Add(Series1)
 		Me.TempChart.Size = New System.Drawing.Size(762, 266)
 		Me.TempChart.TabIndex = 0
 		Me.TempChart.Text = "AcelChart"
@@ -707,76 +694,76 @@ Partial Class Main
 		Me.ProcChart.BackColor = System.Drawing.Color.Transparent
 		Me.ProcChart.BackSecondaryColor = System.Drawing.Color.Transparent
 		Me.ProcChart.BorderlineColor = System.Drawing.Color.Transparent
-		ChartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Green
-		ChartArea8.AxisX.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisX.MajorGrid.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisX.ScrollBar.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisX.TitleForeColor = System.Drawing.Color.Green
-		ChartArea8.AxisY.InterlacedColor = System.Drawing.Color.Green
-		ChartArea8.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Green
-		ChartArea8.AxisY.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisY.MajorGrid.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
-		ChartArea8.AxisY.TitleForeColor = System.Drawing.Color.Green
-		ChartArea8.BackColor = System.Drawing.Color.Transparent
-		ChartArea8.BackSecondaryColor = System.Drawing.Color.Transparent
-		ChartArea8.BorderColor = System.Drawing.Color.Green
-		ChartArea8.CursorX.LineColor = System.Drawing.Color.Green
-		ChartArea8.CursorY.LineColor = System.Drawing.Color.Green
-		ChartArea8.Name = "ChartArea1"
-		Me.ProcChart.ChartAreas.Add(ChartArea8)
-		Legend8.BackColor = System.Drawing.Color.Transparent
-		Legend8.BorderColor = System.Drawing.Color.Green
-		Legend8.ForeColor = System.Drawing.Color.Green
-		Legend8.ItemColumnSeparatorColor = System.Drawing.Color.Green
-		Legend8.Name = "Legend1"
-		Legend8.TitleBackColor = System.Drawing.Color.Transparent
-		Legend8.TitleForeColor = System.Drawing.Color.Green
-		Legend8.TitleSeparatorColor = System.Drawing.Color.Green
-		Me.ProcChart.Legends.Add(Legend8)
+		ChartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Green
+		ChartArea2.AxisX.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisX.ScrollBar.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisX.TitleForeColor = System.Drawing.Color.Green
+		ChartArea2.AxisY.InterlacedColor = System.Drawing.Color.Green
+		ChartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Green
+		ChartArea2.AxisY.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
+		ChartArea2.AxisY.TitleForeColor = System.Drawing.Color.Green
+		ChartArea2.BackColor = System.Drawing.Color.Transparent
+		ChartArea2.BackSecondaryColor = System.Drawing.Color.Transparent
+		ChartArea2.BorderColor = System.Drawing.Color.Green
+		ChartArea2.CursorX.LineColor = System.Drawing.Color.Green
+		ChartArea2.CursorY.LineColor = System.Drawing.Color.Green
+		ChartArea2.Name = "ChartArea1"
+		Me.ProcChart.ChartAreas.Add(ChartArea2)
+		Legend2.BackColor = System.Drawing.Color.Transparent
+		Legend2.BorderColor = System.Drawing.Color.Green
+		Legend2.ForeColor = System.Drawing.Color.Green
+		Legend2.ItemColumnSeparatorColor = System.Drawing.Color.Green
+		Legend2.Name = "Legend1"
+		Legend2.TitleBackColor = System.Drawing.Color.Transparent
+		Legend2.TitleForeColor = System.Drawing.Color.Green
+		Legend2.TitleSeparatorColor = System.Drawing.Color.Green
+		Me.ProcChart.Legends.Add(Legend2)
 		Me.ProcChart.Location = New System.Drawing.Point(6, 330)
 		Me.ProcChart.Name = "ProcChart"
 		Me.ProcChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-		Series8.BorderColor = System.Drawing.Color.Green
-		Series8.ChartArea = "ChartArea1"
-		Series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-		Series8.Color = System.Drawing.Color.Green
-		Series8.EmptyPointStyle.BorderColor = System.Drawing.Color.Green
-		Series8.EmptyPointStyle.Color = System.Drawing.Color.Green
-		Series8.EmptyPointStyle.LabelBorderColor = System.Drawing.Color.Green
-		Series8.EmptyPointStyle.LabelForeColor = System.Drawing.Color.Green
-		Series8.EmptyPointStyle.MarkerColor = System.Drawing.Color.Green
-		Series8.LabelBorderColor = System.Drawing.Color.Green
-		Series8.LabelForeColor = System.Drawing.Color.Green
-		Series8.Legend = "Legend1"
-		Series8.MarkerBorderColor = System.Drawing.Color.Green
-		Series8.MarkerColor = System.Drawing.Color.Green
-		Series8.Name = "グラフ1"
-		DataPoint71.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint72.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint73.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint74.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint75.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint76.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint77.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint78.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint79.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint80.LabelBorderColor = System.Drawing.Color.Green
-		Series8.Points.Add(DataPoint71)
-		Series8.Points.Add(DataPoint72)
-		Series8.Points.Add(DataPoint73)
-		Series8.Points.Add(DataPoint74)
-		Series8.Points.Add(DataPoint75)
-		Series8.Points.Add(DataPoint76)
-		Series8.Points.Add(DataPoint77)
-		Series8.Points.Add(DataPoint78)
-		Series8.Points.Add(DataPoint79)
-		Series8.Points.Add(DataPoint80)
-		Series8.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
-		Me.ProcChart.Series.Add(Series8)
+		Series2.BorderColor = System.Drawing.Color.Green
+		Series2.ChartArea = "ChartArea1"
+		Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+		Series2.Color = System.Drawing.Color.Green
+		Series2.EmptyPointStyle.BorderColor = System.Drawing.Color.Green
+		Series2.EmptyPointStyle.Color = System.Drawing.Color.Green
+		Series2.EmptyPointStyle.LabelBorderColor = System.Drawing.Color.Green
+		Series2.EmptyPointStyle.LabelForeColor = System.Drawing.Color.Green
+		Series2.EmptyPointStyle.MarkerColor = System.Drawing.Color.Green
+		Series2.LabelBorderColor = System.Drawing.Color.Green
+		Series2.LabelForeColor = System.Drawing.Color.Green
+		Series2.Legend = "Legend1"
+		Series2.MarkerBorderColor = System.Drawing.Color.Green
+		Series2.MarkerColor = System.Drawing.Color.Green
+		Series2.Name = "グラフ1"
+		DataPoint11.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint12.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint13.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint14.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint15.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint16.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint17.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint18.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint19.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint20.LabelBorderColor = System.Drawing.Color.Green
+		Series2.Points.Add(DataPoint11)
+		Series2.Points.Add(DataPoint12)
+		Series2.Points.Add(DataPoint13)
+		Series2.Points.Add(DataPoint14)
+		Series2.Points.Add(DataPoint15)
+		Series2.Points.Add(DataPoint16)
+		Series2.Points.Add(DataPoint17)
+		Series2.Points.Add(DataPoint18)
+		Series2.Points.Add(DataPoint19)
+		Series2.Points.Add(DataPoint20)
+		Series2.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
+		Me.ProcChart.Series.Add(Series2)
 		Me.ProcChart.Size = New System.Drawing.Size(762, 453)
 		Me.ProcChart.TabIndex = 0
 		Me.ProcChart.Text = "AcelChart"
@@ -788,76 +775,76 @@ Partial Class Main
 		Me.AcelChart.BackColor = System.Drawing.Color.Transparent
 		Me.AcelChart.BackSecondaryColor = System.Drawing.Color.Transparent
 		Me.AcelChart.BorderlineColor = System.Drawing.Color.Transparent
-		ChartArea9.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Green
-		ChartArea9.AxisX.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisX.MajorGrid.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisX.ScrollBar.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisX.TitleForeColor = System.Drawing.Color.Green
-		ChartArea9.AxisY.InterlacedColor = System.Drawing.Color.Green
-		ChartArea9.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Green
-		ChartArea9.AxisY.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisY.MajorGrid.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
-		ChartArea9.AxisY.TitleForeColor = System.Drawing.Color.Green
-		ChartArea9.BackColor = System.Drawing.Color.Transparent
-		ChartArea9.BackSecondaryColor = System.Drawing.Color.Transparent
-		ChartArea9.BorderColor = System.Drawing.Color.Green
-		ChartArea9.CursorX.LineColor = System.Drawing.Color.Green
-		ChartArea9.CursorY.LineColor = System.Drawing.Color.Green
-		ChartArea9.Name = "ChartArea1"
-		Me.AcelChart.ChartAreas.Add(ChartArea9)
-		Legend9.BackColor = System.Drawing.Color.Transparent
-		Legend9.BorderColor = System.Drawing.Color.Green
-		Legend9.ForeColor = System.Drawing.Color.Green
-		Legend9.ItemColumnSeparatorColor = System.Drawing.Color.Green
-		Legend9.Name = "Legend1"
-		Legend9.TitleBackColor = System.Drawing.Color.Transparent
-		Legend9.TitleForeColor = System.Drawing.Color.Green
-		Legend9.TitleSeparatorColor = System.Drawing.Color.Green
-		Me.AcelChart.Legends.Add(Legend9)
+		ChartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Green
+		ChartArea3.AxisX.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisX.ScrollBar.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisX.TitleForeColor = System.Drawing.Color.Green
+		ChartArea3.AxisY.InterlacedColor = System.Drawing.Color.Green
+		ChartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Green
+		ChartArea3.AxisY.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Green
+		ChartArea3.AxisY.TitleForeColor = System.Drawing.Color.Green
+		ChartArea3.BackColor = System.Drawing.Color.Transparent
+		ChartArea3.BackSecondaryColor = System.Drawing.Color.Transparent
+		ChartArea3.BorderColor = System.Drawing.Color.Green
+		ChartArea3.CursorX.LineColor = System.Drawing.Color.Green
+		ChartArea3.CursorY.LineColor = System.Drawing.Color.Green
+		ChartArea3.Name = "ChartArea1"
+		Me.AcelChart.ChartAreas.Add(ChartArea3)
+		Legend3.BackColor = System.Drawing.Color.Transparent
+		Legend3.BorderColor = System.Drawing.Color.Green
+		Legend3.ForeColor = System.Drawing.Color.Green
+		Legend3.ItemColumnSeparatorColor = System.Drawing.Color.Green
+		Legend3.Name = "Legend1"
+		Legend3.TitleBackColor = System.Drawing.Color.Transparent
+		Legend3.TitleForeColor = System.Drawing.Color.Green
+		Legend3.TitleSeparatorColor = System.Drawing.Color.Green
+		Me.AcelChart.Legends.Add(Legend3)
 		Me.AcelChart.Location = New System.Drawing.Point(6, 24)
 		Me.AcelChart.Name = "AcelChart"
 		Me.AcelChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-		Series9.BorderColor = System.Drawing.Color.Green
-		Series9.ChartArea = "ChartArea1"
-		Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-		Series9.Color = System.Drawing.Color.Green
-		Series9.EmptyPointStyle.BorderColor = System.Drawing.Color.Green
-		Series9.EmptyPointStyle.Color = System.Drawing.Color.Green
-		Series9.EmptyPointStyle.LabelBorderColor = System.Drawing.Color.Green
-		Series9.EmptyPointStyle.LabelForeColor = System.Drawing.Color.Green
-		Series9.EmptyPointStyle.MarkerColor = System.Drawing.Color.Green
-		Series9.LabelBorderColor = System.Drawing.Color.Green
-		Series9.LabelForeColor = System.Drawing.Color.Green
-		Series9.Legend = "Legend1"
-		Series9.MarkerBorderColor = System.Drawing.Color.Green
-		Series9.MarkerColor = System.Drawing.Color.Green
-		Series9.Name = "グラフ1"
-		DataPoint81.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint82.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint83.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint84.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint85.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint86.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint87.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint88.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint89.LabelBorderColor = System.Drawing.Color.Green
-		DataPoint90.LabelBorderColor = System.Drawing.Color.Green
-		Series9.Points.Add(DataPoint81)
-		Series9.Points.Add(DataPoint82)
-		Series9.Points.Add(DataPoint83)
-		Series9.Points.Add(DataPoint84)
-		Series9.Points.Add(DataPoint85)
-		Series9.Points.Add(DataPoint86)
-		Series9.Points.Add(DataPoint87)
-		Series9.Points.Add(DataPoint88)
-		Series9.Points.Add(DataPoint89)
-		Series9.Points.Add(DataPoint90)
-		Series9.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
-		Me.AcelChart.Series.Add(Series9)
+		Series3.BorderColor = System.Drawing.Color.Green
+		Series3.ChartArea = "ChartArea1"
+		Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+		Series3.Color = System.Drawing.Color.Green
+		Series3.EmptyPointStyle.BorderColor = System.Drawing.Color.Green
+		Series3.EmptyPointStyle.Color = System.Drawing.Color.Green
+		Series3.EmptyPointStyle.LabelBorderColor = System.Drawing.Color.Green
+		Series3.EmptyPointStyle.LabelForeColor = System.Drawing.Color.Green
+		Series3.EmptyPointStyle.MarkerColor = System.Drawing.Color.Green
+		Series3.LabelBorderColor = System.Drawing.Color.Green
+		Series3.LabelForeColor = System.Drawing.Color.Green
+		Series3.Legend = "Legend1"
+		Series3.MarkerBorderColor = System.Drawing.Color.Green
+		Series3.MarkerColor = System.Drawing.Color.Green
+		Series3.Name = "グラフ1"
+		DataPoint21.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint22.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint23.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint24.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint25.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint26.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint27.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint28.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint29.LabelBorderColor = System.Drawing.Color.Green
+		DataPoint30.LabelBorderColor = System.Drawing.Color.Green
+		Series3.Points.Add(DataPoint21)
+		Series3.Points.Add(DataPoint22)
+		Series3.Points.Add(DataPoint23)
+		Series3.Points.Add(DataPoint24)
+		Series3.Points.Add(DataPoint25)
+		Series3.Points.Add(DataPoint26)
+		Series3.Points.Add(DataPoint27)
+		Series3.Points.Add(DataPoint28)
+		Series3.Points.Add(DataPoint29)
+		Series3.Points.Add(DataPoint30)
+		Series3.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
+		Me.AcelChart.Series.Add(Series3)
 		Me.AcelChart.Size = New System.Drawing.Size(1537, 300)
 		Me.AcelChart.TabIndex = 0
 		Me.AcelChart.Text = "AcelChart"
@@ -875,7 +862,7 @@ Partial Class Main
 		Me.GroupBox6.ForeColor = System.Drawing.Color.Green
 		Me.GroupBox6.Location = New System.Drawing.Point(12, 631)
 		Me.GroupBox6.Name = "GroupBox6"
-		Me.GroupBox6.Size = New System.Drawing.Size(319, 186)
+		Me.GroupBox6.Size = New System.Drawing.Size(319, 378)
 		Me.GroupBox6.TabIndex = 0
 		Me.GroupBox6.TabStop = False
 		Me.GroupBox6.Text = "コマンド送信"
@@ -1152,7 +1139,6 @@ Partial Class Main
 	End Sub
 	Friend WithEvents BluetoothSpp As IO.Ports.SerialPort
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents ExitBtn As Button
 	Friend WithEvents RcpDataTbox As TextBox
 	Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label8 As Label

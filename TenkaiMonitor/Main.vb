@@ -85,9 +85,6 @@ Public Class Main
 		OutlierCheck(CpuUse, MemUse, AcelX, AcelY, AcelZ, Temp, BtryLev)
 		comSendMsg = ""
 	End Sub
-	Private Sub ExitBtn_Click_1(sender As Object, e As EventArgs) Handles ExitBtn.Click
-		Close()
-	End Sub
 	Private Sub BlackToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BlackToolStripMenuItem.Click
 		My.Settings.Color = Color.Black
 		ChangeColor(Color.Black)
@@ -124,7 +121,6 @@ Public Class Main
 		TrafTbox.BackColor = bgcolor
 		RcpDataTbox.BackColor = bgcolor
 		JstTbox.BackColor = bgcolor
-		ExitBtn.BackColor = bgcolor
 		SendStartComBtn.BackColor = bgcolor
 		TestSendComBtn.BackColor = bgcolor
 		MovieRecStartComBtn.BackColor = bgcolor
@@ -191,6 +187,7 @@ Public Class Main
 	Private Sub MissionFinish_Click(sender As Object, e As EventArgs) Handles MissionFinish.Click
 		If BluetoothConnect(False) = True Then
 			MsgBox("切断成功")
+			RcpDataTbox.Text = MissTimeTbox.Text & "," & "ミッション終了" & vbCrLf & RcpDataTbox.Text
 			saveLog()
 		Else
 			MsgBox("切断エラー")
@@ -478,6 +475,7 @@ Public Class Main
 			comSendMsg = "エラーコード7 機能停止コマンドの送信に失敗"
 		Else
 			comSendMsg = "機能停止コマンド送信成功"
+			RcpDataTbox.Text = MissTimeTbox.Text & "," & comSendMsg & vbCrLf & RcpDataTbox.Text
 		End If
 	End Sub
 
@@ -486,6 +484,7 @@ Public Class Main
 			comSendMsg = "エラーコード0 強制終了コマンドの送信に失敗"
 		Else
 			comSendMsg = "強制終了コマンド送信成功"
+			RcpDataTbox.Text = MissTimeTbox.Text & "," & comSendMsg & vbCrLf & RcpDataTbox.Text
 		End If
 	End Sub
 End Class

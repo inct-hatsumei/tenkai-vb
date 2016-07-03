@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' アセンブリ属性の値を確認します
 
-<Assembly: AssemblyTitle("TenkaiMonitor")>
+<Assembly: AssemblyTitle("てんかいモニタリングソフト")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("TenkaiMonitor")>
-<Assembly: AssemblyCopyright("Copyright ©  2016")>
+<Assembly: AssemblyCopyright("Copyright ©  2016　一関高専発明同好会")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

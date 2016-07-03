@@ -76,6 +76,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="BatteryStat.Designer.vb">
       <DependentUpon>BatteryStat.vb</DependentUpon>
     </Compile>
@@ -140,6 +141,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.vb" />
+    <Compile Include="TenkaiMonitorSplash.Designer.vb">
+      <DependentUpon>TenkaiMonitorSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TenkaiMonitorSplash.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TroubleShooting.Designer.vb">
       <DependentUpon>TroubleShooting.vb</DependentUpon>
     </Compile>
@@ -177,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Outlier.resx">
       <DependentUpon>Outlier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TenkaiMonitorSplash.resx">
+      <DependentUpon>TenkaiMonitorSplash.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TroubleShooting.resx">
       <DependentUpon>TroubleShooting.vb</DependentUpon>

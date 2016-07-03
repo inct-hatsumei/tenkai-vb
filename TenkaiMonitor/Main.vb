@@ -487,4 +487,9 @@ Public Class Main
 			RcpDataTbox.Text = MissTimeTbox.Text & "," & comSendMsg & vbCrLf & RcpDataTbox.Text
 		End If
 	End Sub
+
+	Private Sub TopMostSetting_Click(sender As Object, e As EventArgs) Handles TopMostSetting.Click
+		Me.TopMost = Not Me.TopMost
+		TopMostSetting.Checked = Me.TopMost
+	End Sub
 End Class

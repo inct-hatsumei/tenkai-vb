@@ -138,6 +138,7 @@ Partial Class Main
 		Me.JstTbox = New System.Windows.Forms.TextBox()
 		Me.JstClock = New System.Windows.Forms.Timer(Me.components)
 		Me.LanchCounter = New System.Windows.Forms.Timer(Me.components)
+		Me.TopMostSetting = New System.Windows.Forms.ToolStripMenuItem()
 		Me.GroupBox3.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
@@ -162,9 +163,9 @@ Partial Class Main
 		Me.GroupBox3.BackColor = System.Drawing.SystemColors.Control
 		Me.GroupBox3.Controls.Add(Me.RcpDataTbox)
 		Me.GroupBox3.ForeColor = System.Drawing.Color.Green
-		Me.GroupBox3.Location = New System.Drawing.Point(337, 823)
+		Me.GroupBox3.Location = New System.Drawing.Point(337, 736)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(1549, 186)
+		Me.GroupBox3.Size = New System.Drawing.Size(1389, 186)
 		Me.GroupBox3.TabIndex = 0
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "受信データ"
@@ -181,7 +182,7 @@ Partial Class Main
 		Me.RcpDataTbox.Name = "RcpDataTbox"
 		Me.RcpDataTbox.ReadOnly = True
 		Me.RcpDataTbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-		Me.RcpDataTbox.Size = New System.Drawing.Size(1537, 154)
+		Me.RcpDataTbox.Size = New System.Drawing.Size(1377, 154)
 		Me.RcpDataTbox.TabIndex = 0
 		'
 		'GroupBox1
@@ -503,7 +504,7 @@ Partial Class Main
 		Me.GroupBox5.ForeColor = System.Drawing.Color.Green
 		Me.GroupBox5.Location = New System.Drawing.Point(12, 34)
 		Me.GroupBox5.Name = "GroupBox5"
-		Me.GroupBox5.Size = New System.Drawing.Size(319, 65)
+		Me.GroupBox5.Size = New System.Drawing.Size(319, 79)
 		Me.GroupBox5.TabIndex = 2
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "ミッション基準時間"
@@ -532,7 +533,7 @@ Partial Class Main
 		Me.GroupBox2.ForeColor = System.Drawing.Color.Green
 		Me.GroupBox2.Location = New System.Drawing.Point(337, 34)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(1549, 783)
+		Me.GroupBox2.Size = New System.Drawing.Size(1389, 679)
 		Me.GroupBox2.TabIndex = 3
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "機体状況表示"
@@ -574,7 +575,7 @@ Partial Class Main
 		Me.GroupBox7.ForeColor = System.Drawing.Color.Green
 		Me.GroupBox7.Location = New System.Drawing.Point(774, 325)
 		Me.GroupBox7.Name = "GroupBox7"
-		Me.GroupBox7.Size = New System.Drawing.Size(762, 176)
+		Me.GroupBox7.Size = New System.Drawing.Size(602, 176)
 		Me.GroupBox7.TabIndex = 2
 		Me.GroupBox7.TabStop = False
 		Me.GroupBox7.Text = "バッテリー残量"
@@ -600,7 +601,7 @@ Partial Class Main
 		Me.BatLevGraph.ForeColor = System.Drawing.Color.Green
 		Me.BatLevGraph.Location = New System.Drawing.Point(6, 65)
 		Me.BatLevGraph.Name = "BatLevGraph"
-		Me.BatLevGraph.Size = New System.Drawing.Size(750, 80)
+		Me.BatLevGraph.Size = New System.Drawing.Size(590, 80)
 		Me.BatLevGraph.TabIndex = 1
 		'
 		'TempChart
@@ -640,7 +641,7 @@ Partial Class Main
 		Legend1.TitleForeColor = System.Drawing.Color.Green
 		Legend1.TitleSeparatorColor = System.Drawing.Color.Green
 		Me.TempChart.Legends.Add(Legend1)
-		Me.TempChart.Location = New System.Drawing.Point(774, 511)
+		Me.TempChart.Location = New System.Drawing.Point(614, 511)
 		Me.TempChart.Name = "TempChart"
 		Me.TempChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
 		Series1.BorderColor = System.Drawing.Color.Green
@@ -680,7 +681,7 @@ Partial Class Main
 		Series1.Points.Add(DataPoint10)
 		Series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
 		Me.TempChart.Series.Add(Series1)
-		Me.TempChart.Size = New System.Drawing.Size(762, 266)
+		Me.TempChart.Size = New System.Drawing.Size(762, 162)
 		Me.TempChart.TabIndex = 0
 		Me.TempChart.Text = "AcelChart"
 		'
@@ -762,7 +763,7 @@ Partial Class Main
 		Series2.Points.Add(DataPoint20)
 		Series2.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
 		Me.ProcChart.Series.Add(Series2)
-		Me.ProcChart.Size = New System.Drawing.Size(762, 453)
+		Me.ProcChart.Size = New System.Drawing.Size(602, 349)
 		Me.ProcChart.TabIndex = 0
 		Me.ProcChart.Text = "AcelChart"
 		'
@@ -843,7 +844,7 @@ Partial Class Main
 		Series3.Points.Add(DataPoint30)
 		Series3.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Green
 		Me.AcelChart.Series.Add(Series3)
-		Me.AcelChart.Size = New System.Drawing.Size(1537, 300)
+		Me.AcelChart.Size = New System.Drawing.Size(1377, 300)
 		Me.AcelChart.TabIndex = 0
 		Me.AcelChart.Text = "AcelChart"
 		'
@@ -860,7 +861,7 @@ Partial Class Main
 		Me.GroupBox6.ForeColor = System.Drawing.Color.Green
 		Me.GroupBox6.Location = New System.Drawing.Point(12, 631)
 		Me.GroupBox6.Name = "GroupBox6"
-		Me.GroupBox6.Size = New System.Drawing.Size(319, 378)
+		Me.GroupBox6.Size = New System.Drawing.Size(319, 296)
 		Me.GroupBox6.TabIndex = 0
 		Me.GroupBox6.TabStop = False
 		Me.GroupBox6.Text = "コマンド送信"
@@ -931,7 +932,7 @@ Partial Class Main
 		Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Mission, Me.Config, Me.SystemStat, Me.Help})
 		Me.MenuBar.Location = New System.Drawing.Point(0, 0)
 		Me.MenuBar.Name = "MenuBar"
-		Me.MenuBar.Size = New System.Drawing.Size(1898, 31)
+		Me.MenuBar.Size = New System.Drawing.Size(1738, 32)
 		Me.MenuBar.TabIndex = 4
 		Me.MenuBar.Text = "MenuStrip1"
 		'
@@ -939,7 +940,7 @@ Partial Class Main
 		'
 		Me.Mission.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MissionStart, Me.LanchCounterStart, Me.MissionFinish})
 		Me.Mission.Name = "Mission"
-		Me.Mission.Size = New System.Drawing.Size(80, 27)
+		Me.Mission.Size = New System.Drawing.Size(80, 28)
 		Me.Mission.Text = "ミッション"
 		'
 		'MissionStart
@@ -962,9 +963,9 @@ Partial Class Main
 		'
 		'Config
 		'
-		Me.Config.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BluetoothConfig, Me.LogSaveConfig, Me.UIConfig, Me.OutlierConfig})
+		Me.Config.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BluetoothConfig, Me.LogSaveConfig, Me.UIConfig, Me.OutlierConfig, Me.TopMostSetting})
 		Me.Config.Name = "Config"
-		Me.Config.Size = New System.Drawing.Size(58, 27)
+		Me.Config.Size = New System.Drawing.Size(58, 28)
 		Me.Config.Text = "設定"
 		'
 		'BluetoothConfig
@@ -1008,7 +1009,7 @@ Partial Class Main
 		'
 		Me.SystemStat.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BatteryStat, Me.OSInfo})
 		Me.SystemStat.Name = "SystemStat"
-		Me.SystemStat.Size = New System.Drawing.Size(149, 27)
+		Me.SystemStat.Size = New System.Drawing.Size(149, 28)
 		Me.SystemStat.Text = "システムステータス"
 		'
 		'BatteryStat
@@ -1027,7 +1028,7 @@ Partial Class Main
 		'
 		Me.Help.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AndroidAppHelp, Me.GroundSoftHelp, Me.MissionMan, Me.CheckList, Me.TroubleShooting, Me.About})
 		Me.Help.Name = "Help"
-		Me.Help.Size = New System.Drawing.Size(66, 27)
+		Me.Help.Size = New System.Drawing.Size(66, 28)
 		Me.Help.Text = "ヘルプ"
 		'
 		'AndroidAppHelp
@@ -1070,9 +1071,9 @@ Partial Class Main
 		'
 		Me.GroupBox4.Controls.Add(Me.JstTbox)
 		Me.GroupBox4.ForeColor = System.Drawing.Color.Green
-		Me.GroupBox4.Location = New System.Drawing.Point(12, 110)
+		Me.GroupBox4.Location = New System.Drawing.Point(12, 119)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(319, 63)
+		Me.GroupBox4.Size = New System.Drawing.Size(319, 54)
 		Me.GroupBox4.TabIndex = 5
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "パソコン時刻"
@@ -1095,12 +1096,18 @@ Partial Class Main
 		'
 		Me.LanchCounter.Interval = 1000
 		'
+		'TopMostSetting
+		'
+		Me.TopMostSetting.Name = "TopMostSetting"
+		Me.TopMostSetting.Size = New System.Drawing.Size(250, 30)
+		Me.TopMostSetting.Text = "常に手前に表示"
+		'
 		'Main
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.SystemColors.Control
-		Me.ClientSize = New System.Drawing.Size(1898, 1024)
+		Me.ClientSize = New System.Drawing.Size(1738, 934)
 		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.GroupBox1)
@@ -1211,4 +1218,5 @@ Partial Class Main
 	Friend WithEvents ExitComBtn As Button
 	Friend WithEvents AllStopComBtn As Button
 	Friend WithEvents MovieRecStartComBtn As Button
+	Friend WithEvents TopMostSetting As ToolStripMenuItem
 End Class

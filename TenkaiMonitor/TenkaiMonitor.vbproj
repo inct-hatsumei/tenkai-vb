@@ -209,6 +209,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Manual.html" />
     <Content Include="tenkaiicon.ico" />
     <Content Include="TroubleShooting.html" />
   </ItemGroup>

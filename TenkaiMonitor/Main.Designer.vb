@@ -129,8 +129,6 @@ Partial Class Main
 		Me.BatteryStat = New System.Windows.Forms.ToolStripMenuItem()
 		Me.OSInfo = New System.Windows.Forms.ToolStripMenuItem()
 		Me.Help = New System.Windows.Forms.ToolStripMenuItem()
-		Me.AndroidAppHelp = New System.Windows.Forms.ToolStripMenuItem()
-		Me.GroundSoftHelp = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MissionMan = New System.Windows.Forms.ToolStripMenuItem()
 		Me.CheckList = New System.Windows.Forms.ToolStripMenuItem()
 		Me.TroubleShooting = New System.Windows.Forms.ToolStripMenuItem()
@@ -1032,45 +1030,33 @@ Partial Class Main
 		'
 		'Help
 		'
-		Me.Help.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AndroidAppHelp, Me.GroundSoftHelp, Me.MissionMan, Me.CheckList, Me.TroubleShooting, Me.About})
+		Me.Help.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MissionMan, Me.CheckList, Me.TroubleShooting, Me.About})
 		Me.Help.Name = "Help"
 		Me.Help.Size = New System.Drawing.Size(66, 28)
 		Me.Help.Text = "ヘルプ"
 		'
-		'AndroidAppHelp
-		'
-		Me.AndroidAppHelp.Name = "AndroidAppHelp"
-		Me.AndroidAppHelp.Size = New System.Drawing.Size(244, 30)
-		Me.AndroidAppHelp.Text = "Androidアプリヘルプ"
-		'
-		'GroundSoftHelp
-		'
-		Me.GroundSoftHelp.Name = "GroundSoftHelp"
-		Me.GroundSoftHelp.Size = New System.Drawing.Size(244, 30)
-		Me.GroundSoftHelp.Text = "地上局ソフトヘルプ"
-		'
 		'MissionMan
 		'
 		Me.MissionMan.Name = "MissionMan"
-		Me.MissionMan.Size = New System.Drawing.Size(244, 30)
+		Me.MissionMan.Size = New System.Drawing.Size(240, 30)
 		Me.MissionMan.Text = "ミッション手順書"
 		'
 		'CheckList
 		'
 		Me.CheckList.Name = "CheckList"
-		Me.CheckList.Size = New System.Drawing.Size(244, 30)
+		Me.CheckList.Size = New System.Drawing.Size(240, 30)
 		Me.CheckList.Text = "チェックリスト"
 		'
 		'TroubleShooting
 		'
 		Me.TroubleShooting.Name = "TroubleShooting"
-		Me.TroubleShooting.Size = New System.Drawing.Size(244, 30)
+		Me.TroubleShooting.Size = New System.Drawing.Size(240, 30)
 		Me.TroubleShooting.Text = "トラブルシューティング"
 		'
 		'About
 		'
 		Me.About.Name = "About"
-		Me.About.Size = New System.Drawing.Size(244, 30)
+		Me.About.Size = New System.Drawing.Size(240, 30)
 		Me.About.Text = "About"
 		'
 		'GroupBox4
@@ -1188,10 +1174,8 @@ Partial Class Main
     Friend WithEvents SystemStat As ToolStripMenuItem
     Friend WithEvents BatteryStat As ToolStripMenuItem
     Friend WithEvents Help As ToolStripMenuItem
-    Friend WithEvents AndroidAppHelp As ToolStripMenuItem
-    Friend WithEvents GroundSoftHelp As ToolStripMenuItem
-    Friend WithEvents MissionMan As ToolStripMenuItem
-    Friend WithEvents CheckList As ToolStripMenuItem
+	Friend WithEvents MissionMan As ToolStripMenuItem
+	Friend WithEvents CheckList As ToolStripMenuItem
     Friend WithEvents TroubleShooting As ToolStripMenuItem
     Friend WithEvents About As ToolStripMenuItem
     Friend WithEvents MissionStart As ToolStripMenuItem

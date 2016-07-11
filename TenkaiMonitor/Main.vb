@@ -510,4 +510,10 @@ Public Class Main
 		checklist.ShowDialog(Me)
 		checklist.Dispose()
 	End Sub
+
+	Private Sub MissionMan_Click(sender As Object, e As EventArgs) Handles MissionMan.Click
+		Dim manual As New Manual()
+		manual.ShowDialog(Me)
+		manual.Dispose()
+	End Sub
 End Class

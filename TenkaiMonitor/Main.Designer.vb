@@ -124,6 +124,7 @@ Partial Class Main
 		Me.BlackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.WhiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.OutlierConfig = New System.Windows.Forms.ToolStripMenuItem()
+		Me.TopMostSetting = New System.Windows.Forms.ToolStripMenuItem()
 		Me.SystemStat = New System.Windows.Forms.ToolStripMenuItem()
 		Me.BatteryStat = New System.Windows.Forms.ToolStripMenuItem()
 		Me.OSInfo = New System.Windows.Forms.ToolStripMenuItem()
@@ -138,7 +139,6 @@ Partial Class Main
 		Me.JstTbox = New System.Windows.Forms.TextBox()
 		Me.JstClock = New System.Windows.Forms.Timer(Me.components)
 		Me.LanchCounter = New System.Windows.Forms.Timer(Me.components)
-		Me.TopMostSetting = New System.Windows.Forms.ToolStripMenuItem()
 		Me.GroupBox3.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
@@ -1005,6 +1005,12 @@ Partial Class Main
 		Me.OutlierConfig.Size = New System.Drawing.Size(250, 30)
 		Me.OutlierConfig.Text = "異常値設定"
 		'
+		'TopMostSetting
+		'
+		Me.TopMostSetting.Name = "TopMostSetting"
+		Me.TopMostSetting.Size = New System.Drawing.Size(250, 30)
+		Me.TopMostSetting.Text = "常に手前に表示"
+		'
 		'SystemStat
 		'
 		Me.SystemStat.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BatteryStat, Me.OSInfo})
@@ -1095,12 +1101,6 @@ Partial Class Main
 		'LanchCounter
 		'
 		Me.LanchCounter.Interval = 1000
-		'
-		'TopMostSetting
-		'
-		Me.TopMostSetting.Name = "TopMostSetting"
-		Me.TopMostSetting.Size = New System.Drawing.Size(250, 30)
-		Me.TopMostSetting.Text = "常に手前に表示"
 		'
 		'Main
 		'

@@ -22,16 +22,31 @@ Partial Class TroubleShooting
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.SuspendLayout()
-        '
-        'TroubleShooting
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(784, 561)
-        Me.Name = "TroubleShooting"
-        Me.Text = "トラブルシューティング"
-        Me.ResumeLayout(False)
+		Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+		Me.SuspendLayout()
+		'
+		'WebBrowser1
+		'
+		Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
+		Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+		Me.WebBrowser1.Name = "WebBrowser1"
+		Me.WebBrowser1.Size = New System.Drawing.Size(1307, 842)
+		Me.WebBrowser1.TabIndex = 0
+		Me.WebBrowser1.Url = New System.Uri("file:///D:\workspace\CANSAT2016\tenkai-vb\TenkaiMonitor\TroubleShooting.html", System.UriKind.Absolute)
+		'
+		'TroubleShooting
+		'
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
+		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+		Me.ClientSize = New System.Drawing.Size(1307, 842)
+		Me.Controls.Add(Me.WebBrowser1)
+		Me.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+		Me.Name = "TroubleShooting"
+		Me.Text = "トラブルシューティング"
+		Me.ResumeLayout(False)
 
-    End Sub
+	End Sub
+
+	Friend WithEvents WebBrowser1 As WebBrowser
 End Class

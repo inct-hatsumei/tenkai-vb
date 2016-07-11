@@ -492,4 +492,10 @@ Public Class Main
 		Me.TopMost = Not Me.TopMost
 		TopMostSetting.Checked = Me.TopMost
 	End Sub
+
+	Private Sub TroubleShooting_Click(sender As Object, e As EventArgs) Handles TroubleShooting.Click
+		Dim ts As New TroubleShooting()
+		ts.ShowDialog(Me)
+		ts.Dispose()
+	End Sub
 End Class

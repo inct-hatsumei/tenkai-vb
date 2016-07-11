@@ -504,4 +504,10 @@ Public Class Main
 		spl.ShowDialog(Me)
 		spl.Dispose()
 	End Sub
+
+	Private Sub CheckList_Click(sender As Object, e As EventArgs) Handles CheckList.Click
+		Dim checklist As New CheckList()
+		checklist.ShowDialog(Me)
+		checklist.Dispose()
+	End Sub
 End Class

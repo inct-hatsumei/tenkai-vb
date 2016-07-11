@@ -498,4 +498,10 @@ Public Class Main
 		ts.ShowDialog(Me)
 		ts.Dispose()
 	End Sub
+
+	Private Sub About_Click(sender As Object, e As EventArgs) Handles About.Click
+		Dim spl As New TenkaiMonitorSplash()
+		spl.ShowDialog(Me)
+		spl.Dispose()
+	End Sub
 End Class

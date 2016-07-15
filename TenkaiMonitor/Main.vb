@@ -548,6 +548,6 @@ Public Class Main
 
 	Private Sub RocketExpBtn_Click(sender As Object, e As EventArgs) Handles RocketExpBtn.Click
 		comSendMsg = "ロケット展開"
-		RcpDataTbox.Text = MissTimeTbox.Text & "," & comSendMsg & vbCrLf & RcpDataTbox.Text
+		'RcpDataTbox.Text = MissTimeTbox.Text & "," & comSendMsg & vbCrLf & RcpDataTbox.Text
 	End Sub
 End Class

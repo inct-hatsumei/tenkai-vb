@@ -65,7 +65,7 @@ Partial Class CheckList
 		'
 		Me.CheckedListBox1.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
 		Me.CheckedListBox1.FormattingEnabled = True
-		Me.CheckedListBox1.Items.AddRange(New Object() {"機体に歪み、亀裂等の異常はないか", "パラシュートとの接続は正常か", "パラシュートのひもに絡まりはないか", "パラシュートに亀裂等はないか", "パラシュートのたたみ方は規定通りか"})
+		Me.CheckedListBox1.Items.AddRange(New Object() {"機体に歪み、亀裂等の異常はないか", "パラシュートとの接続は正常か", "パラシュートのひもに絡まりはないか", "パラシュートに亀裂等はないか", "パラシュートのたたみ方は規定通りか", "重心にずれはないか"})
 		Me.CheckedListBox1.Location = New System.Drawing.Point(17, 40)
 		Me.CheckedListBox1.Name = "CheckedListBox1"
 		Me.CheckedListBox1.Size = New System.Drawing.Size(720, 158)
@@ -75,7 +75,7 @@ Partial Class CheckList
 		'
 		Me.CheckedListBox2.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
 		Me.CheckedListBox2.FormattingEnabled = True
-		Me.CheckedListBox2.Items.AddRange(New Object() {"ArduinoのLEDは点灯しているか", "ジャイロセンサのLEDは点灯しているか", "リード線の接続は正常か"})
+		Me.CheckedListBox2.Items.AddRange(New Object() {"ArduinoのLEDは点灯しているか", "ジャイロセンサのLEDは点灯しているか", "リード線の接続は正常か", "microSDカードはリセットしたか"})
 		Me.CheckedListBox2.Location = New System.Drawing.Point(17, 228)
 		Me.CheckedListBox2.Name = "CheckedListBox2"
 		Me.CheckedListBox2.Size = New System.Drawing.Size(720, 114)
@@ -85,7 +85,7 @@ Partial Class CheckList
 		'
 		Me.CheckedListBox3.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
 		Me.CheckedListBox3.FormattingEnabled = True
-		Me.CheckedListBox3.Items.AddRange(New Object() {"モニタリングソフトの各設定項目は適切に設定されているか", "Androidアプリの各設定項目は適切に設定されているか", "送受信テストは正常に行えたか"})
+		Me.CheckedListBox3.Items.AddRange(New Object() {"モニタリングソフトの各設定項目は適切に設定されているか", "Androidアプリの各設定項目(Bluetooth,GPS)は適切に設定されているか", "送受信テストは正常に行えたか"})
 		Me.CheckedListBox3.Location = New System.Drawing.Point(17, 372)
 		Me.CheckedListBox3.Name = "CheckedListBox3"
 		Me.CheckedListBox3.Size = New System.Drawing.Size(720, 114)

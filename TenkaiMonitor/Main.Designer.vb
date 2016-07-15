@@ -137,6 +137,8 @@ Partial Class Main
 		Me.JstTbox = New System.Windows.Forms.TextBox()
 		Me.JstClock = New System.Windows.Forms.Timer(Me.components)
 		Me.LanchCounter = New System.Windows.Forms.Timer(Me.components)
+		Me.missionSW = New System.Windows.Forms.Timer(Me.components)
+		Me.RocketExpBtn = New System.Windows.Forms.Button()
 		Me.GroupBox3.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
@@ -850,6 +852,7 @@ Partial Class Main
 		'
 		Me.GroupBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
 			Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+		Me.GroupBox6.Controls.Add(Me.RocketExpBtn)
 		Me.GroupBox6.Controls.Add(Me.AlarmStartComBtn)
 		Me.GroupBox6.Controls.Add(Me.TestSendComBtn)
 		Me.GroupBox6.Controls.Add(Me.ExitComBtn)
@@ -930,7 +933,7 @@ Partial Class Main
 		Me.MenuBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Mission, Me.Config, Me.SystemStat, Me.Help})
 		Me.MenuBar.Location = New System.Drawing.Point(0, 0)
 		Me.MenuBar.Name = "MenuBar"
-		Me.MenuBar.Size = New System.Drawing.Size(1738, 32)
+		Me.MenuBar.Size = New System.Drawing.Size(1738, 31)
 		Me.MenuBar.TabIndex = 4
 		Me.MenuBar.Text = "MenuStrip1"
 		'
@@ -938,7 +941,7 @@ Partial Class Main
 		'
 		Me.Mission.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MissionStart, Me.LanchCounterStart, Me.MissionFinish})
 		Me.Mission.Name = "Mission"
-		Me.Mission.Size = New System.Drawing.Size(80, 28)
+		Me.Mission.Size = New System.Drawing.Size(80, 27)
 		Me.Mission.Text = "ミッション"
 		'
 		'MissionStart
@@ -963,7 +966,7 @@ Partial Class Main
 		'
 		Me.Config.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BluetoothConfig, Me.LogSaveConfig, Me.UIConfig, Me.OutlierConfig, Me.TopMostSetting})
 		Me.Config.Name = "Config"
-		Me.Config.Size = New System.Drawing.Size(58, 28)
+		Me.Config.Size = New System.Drawing.Size(58, 27)
 		Me.Config.Text = "設定"
 		'
 		'BluetoothConfig
@@ -1013,7 +1016,7 @@ Partial Class Main
 		'
 		Me.SystemStat.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BatteryStat, Me.OSInfo})
 		Me.SystemStat.Name = "SystemStat"
-		Me.SystemStat.Size = New System.Drawing.Size(149, 28)
+		Me.SystemStat.Size = New System.Drawing.Size(149, 27)
 		Me.SystemStat.Text = "システムステータス"
 		'
 		'BatteryStat
@@ -1032,7 +1035,7 @@ Partial Class Main
 		'
 		Me.Help.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MissionMan, Me.CheckList, Me.TroubleShooting, Me.About})
 		Me.Help.Name = "Help"
-		Me.Help.Size = New System.Drawing.Size(66, 28)
+		Me.Help.Size = New System.Drawing.Size(66, 27)
 		Me.Help.Text = "ヘルプ"
 		'
 		'MissionMan
@@ -1068,7 +1071,7 @@ Partial Class Main
 		Me.GroupBox4.Size = New System.Drawing.Size(319, 54)
 		Me.GroupBox4.TabIndex = 5
 		Me.GroupBox4.TabStop = False
-		Me.GroupBox4.Text = "パソコン時刻"
+		Me.GroupBox4.Text = "ミッション経過時間"
 		'
 		'JstTbox
 		'
@@ -1087,6 +1090,19 @@ Partial Class Main
 		'LanchCounter
 		'
 		Me.LanchCounter.Interval = 1000
+		'
+		'missionSW
+		'
+		Me.missionSW.Interval = 10
+		'
+		'RocketExpBtn
+		'
+		Me.RocketExpBtn.Location = New System.Drawing.Point(10, 156)
+		Me.RocketExpBtn.Name = "RocketExpBtn"
+		Me.RocketExpBtn.Size = New System.Drawing.Size(290, 76)
+		Me.RocketExpBtn.TabIndex = 3
+		Me.RocketExpBtn.Text = "ロケット展開"
+		Me.RocketExpBtn.UseVisualStyleBackColor = True
 		'
 		'Main
 		'
@@ -1182,17 +1198,16 @@ Partial Class Main
     Friend WithEvents MissionFinish As ToolStripMenuItem
     Friend WithEvents OSInfo As ToolStripMenuItem
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents JstTbox As TextBox
-    Friend WithEvents JstClock As Timer
-    Friend WithEvents OutlierConfig As ToolStripMenuItem
-    Friend WithEvents AcelChart As DataVisualization.Charting.Chart
-    Friend WithEvents TestSendComBtn As Button
-    Friend WithEvents SendStartComBtn As Button
+	Friend WithEvents JstClock As Timer
+	Friend WithEvents OutlierConfig As ToolStripMenuItem
+	Friend WithEvents AcelChart As DataVisualization.Charting.Chart
+	Friend WithEvents TestSendComBtn As Button
+	Friend WithEvents SendStartComBtn As Button
 	Friend WithEvents TempChart As DataVisualization.Charting.Chart
 	Friend WithEvents ProcChart As DataVisualization.Charting.Chart
-    Friend WithEvents BatLevGraph As ProgressBar
-    Friend WithEvents GroupBox7 As GroupBox
-    Friend WithEvents BatLevLabel As Label
+	Friend WithEvents BatLevGraph As ProgressBar
+	Friend WithEvents GroupBox7 As GroupBox
+	Friend WithEvents BatLevLabel As Label
 	Friend WithEvents Panel1 As Panel
 	Friend WithEvents LanchCount As Label
 	Friend WithEvents LanchCountTitle As Label
@@ -1203,4 +1218,7 @@ Partial Class Main
 	Friend WithEvents AllStopComBtn As Button
 	Friend WithEvents MovieRecStartComBtn As Button
 	Friend WithEvents TopMostSetting As ToolStripMenuItem
+	Friend WithEvents missionSW As Timer
+	Friend WithEvents JstTbox As TextBox
+	Friend WithEvents RocketExpBtn As Button
 End Class

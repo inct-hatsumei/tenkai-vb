@@ -8,8 +8,12 @@ Public Class Main
 	Dim DataNo As Integer = 0
 	Dim byteNum As Integer = 0
 	Dim LogSaved As Boolean = False
+	Dim MisnStarted As Boolean = False
 	Dim sec As Integer = 5
 	Dim comSendMsg As String = ""
+
+	Dim sw As New Stopwatch()
+
 	'グラフ関連
 	Dim AcelDataSet As New DataSet
 	Dim AcelDataTable As New DataTable
@@ -23,10 +27,13 @@ Public Class Main
 	Dim TempDataTable As New DataTable
 	Dim TempDataTableRow As DataRow
 	Dim TempDatasetDelete As Boolean = False
+
 	Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		ChangeColor(My.Settings.Color)
 		InitializeCharts()
 		JstClock.Enabled = True
+		Me.TopMost = My.Settings.TopMost
+		TopMostSetting.Checked = My.Settings.TopMost
 	End Sub
 	Delegate Sub DataDelegate(ByVal sdata As String)
 	Private Sub BluetoothSpp_DataReceived(ByVal sender As Object, ByVal e As EventArgs) Handles BluetoothSpp.DataReceived
@@ -58,7 +65,7 @@ Public Class Main
 		AcelYTbox.Text = ReceivedDataObj(9)
 		AcelZTbox.Text = ReceivedDataObj(10)
 		RcpDataTbox.Text =
-			MissTimeTbox.Text & "," & CpuUseTbox.Text & "," &
+			MissTimeTbox.Text & "," & JstTbox.Text & "," & CpuUseTbox.Text & "," &
 			MemUseTbox.Text & "," & TempTbox.Text & "," &
 			BtryTbox.Text & "," & LatTbox.Text & "," &
 			LonTbox.Text & "," & AltTbox.Text & "," &
@@ -179,18 +186,26 @@ Public Class Main
 	Private Sub MissionStart_Click(sender As Object, e As EventArgs) Handles MissionStart.Click
 		If BluetoothConnect(True) = True Then
 			MsgBox("接続成功")
+			MisnStarted = True
 		Else
 			Media.SystemSounds.Exclamation.Play()
 			MsgBox("接続エラー")
 		End If
 	End Sub
 	Private Sub MissionFinish_Click(sender As Object, e As EventArgs) Handles MissionFinish.Click
-		If BluetoothConnect(False) = True Then
-			MsgBox("切断成功")
-			RcpDataTbox.Text = MissTimeTbox.Text & "," & "ミッション終了" & vbCrLf & RcpDataTbox.Text
-			saveLog()
+		If MisnStarted = False Then
+			MsgBox("ミッション開始をクリックしてください")
 		Else
-			MsgBox("切断エラー")
+			If BluetoothConnect(False) = True Then
+				MsgBox("切断成功")
+				RcpDataTbox.Text = MissTimeTbox.Text & "," & "ミッション終了" & vbCrLf & RcpDataTbox.Text
+				saveLog()
+				sw.Stop()
+				missionSW.Enabled = False
+				MisnStarted = False
+			Else
+				MsgBox("切断エラー")
+			End If
 		End If
 	End Sub
 	Private Function showTempChart(temp As Single)
@@ -425,13 +440,22 @@ Public Class Main
 		LogSaved = True
 	End Function
 	Private Sub LanchCounter_Tick(sender As Object, e As EventArgs) Handles LanchCounter.Tick
-		If sec >= 0 Then
-			LanchCount.Text = "打ち上げまであと" & sec & "秒"
-			sec -= 1
+		If MisnStarted = True Then
+			If sec >= 0 Then
+				LanchCount.Text = "打ち上げまであと" & sec & "秒"
+				sec -= 1
+			Else
+				comSendMsg = "リフトオフ"
+				RcpDataTbox.Text = MissTimeTbox.Text & "," & comSendMsg & vbCrLf & RcpDataTbox.Text
+				Panel1.Visible = False
+				LanchCounter.Enabled = False
+				sw.Start()
+				missionSW.Enabled = True
+			End If
 		Else
-			Panel1.Visible = False
-			LanchCounter.Enabled = False
+			MsgBox("ミッション開始をクリックしてください")
 		End If
+
 	End Sub
 
 	Private Sub LanchCounterStart_Click(sender As Object, e As EventArgs) Handles LanchCounterStart.Click
@@ -491,6 +515,7 @@ Public Class Main
 	Private Sub TopMostSetting_Click(sender As Object, e As EventArgs) Handles TopMostSetting.Click
 		Me.TopMost = Not Me.TopMost
 		TopMostSetting.Checked = Me.TopMost
+		My.Settings.TopMost = Me.TopMost
 	End Sub
 
 	Private Sub TroubleShooting_Click(sender As Object, e As EventArgs) Handles TroubleShooting.Click
@@ -515,5 +540,14 @@ Public Class Main
 		Dim manual As New Manual()
 		manual.ShowDialog(Me)
 		manual.Dispose()
+	End Sub
+
+	Private Sub missionSW_Tick(sender As Object, e As EventArgs) Handles missionSW.Tick
+		JstTbox.Text = sw.Elapsed.ToString()
+	End Sub
+
+	Private Sub RocketExpBtn_Click(sender As Object, e As EventArgs) Handles RocketExpBtn.Click
+		comSendMsg = "ロケット展開"
+		RcpDataTbox.Text = MissTimeTbox.Text & "," & comSendMsg & vbCrLf & RcpDataTbox.Text
 	End Sub
 End Class
